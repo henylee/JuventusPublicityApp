@@ -19,6 +19,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <fragment
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                class="tjeit.co.kr.juventuspublicityapp.fragment.mainFragment"
+                tools:layout="@layout/frag_main">
+
+            </fragment>
+
         </LinearLayout>
 
         <LinearLayout
