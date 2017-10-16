@@ -5,6 +5,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 /**
  * Created by joeun on 2017-10-16.
@@ -14,7 +15,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     Context mContext = this;
 
-    public ImageButton hamburgBtn;
+    public ImageView hamburgBtn;
 
     public abstract void setupEvents();
     public abstract void setValues();
@@ -24,6 +25,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
         getSupportActionBar().setCustomView(R.layout.custom_action_bar);
+        hamburgBtn = getSupportActionBar().getCustomView().findViewById(R.id.hamburgBtn);
         Toolbar parent = (Toolbar) getSupportActionBar().getCustomView().getParent();
         parent.setContentInsetsAbsolute(0, 0);
         getSupportActionBar().setElevation(0);
