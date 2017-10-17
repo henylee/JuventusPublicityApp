@@ -32,7 +32,7 @@
                 android:tag="allnewsfrag"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                class="tjeit.co.kr.juventuspublicityapp.fragment.AllNewsFragment"
+                class="tjeit.co.kr.juventuspublicityapp.fragment.news.AllNewsFragment"
                 tools:layout="@layout/frag_allnews">
 
             </fragment>
@@ -41,7 +41,7 @@
                 android:tag="playerfrag"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                class="tjeit.co.kr.juventuspublicityapp.fragment.AllPlayerFragment"
+                class="tjeit.co.kr.juventuspublicityapp.fragment.players.AllPlayerFragment"
                 tools:layout="@layout/frag_allplayer">
 
             </fragment>
@@ -50,7 +50,7 @@
                 android:tag="matchfrag"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                class="tjeit.co.kr.juventuspublicityapp.fragment.MatchFragment"
+                class="tjeit.co.kr.juventuspublicityapp.fragment.match.MatchFragment"
                 tools:layout="@layout/frag_match">
 
             </fragment>

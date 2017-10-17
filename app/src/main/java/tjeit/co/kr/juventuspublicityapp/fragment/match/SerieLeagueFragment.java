@@ -1,4 +1,4 @@
-package tjeit.co.kr.juventuspublicityapp.fragment;
+package tjeit.co.kr.juventuspublicityapp.fragment.match;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,12 +14,12 @@ import tjeit.co.kr.juventuspublicityapp.R;
  * Created by joeun on 2017-10-17.
  */
 
-public class MemberShipFragment extends Fragment {
+public class SerieLeagueFragment extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.frag_membership, container, false);
+        View v = inflater.inflate(R.layout.frag_serie, container, false);
         return v;
     }
 
@@ -38,4 +38,5 @@ public class MemberShipFragment extends Fragment {
     private void setValues() {
 
     }
+
 }

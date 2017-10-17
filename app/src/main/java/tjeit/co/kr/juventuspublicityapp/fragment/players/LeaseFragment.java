@@ -1,17 +1,12 @@
-package tjeit.co.kr.juventuspublicityapp.fragment;
+package tjeit.co.kr.juventuspublicityapp.fragment.players;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.ogaclejapan.smarttablayout.SmartTabLayout;
-import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter;
-import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems;
 
 import tjeit.co.kr.juventuspublicityapp.R;
 
@@ -19,12 +14,12 @@ import tjeit.co.kr.juventuspublicityapp.R;
  * Created by joeun on 2017-10-17.
  */
 
-public class AllPlayerFragment extends Fragment {
+public class LeaseFragment extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.frag_main, container, false);
+        View v = inflater.inflate(R.layout.frag_lease, container, false);
         return v;
     }
 

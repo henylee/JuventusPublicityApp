@@ -1,8 +1,23 @@
 <resources>
     <string name="app_name">JuventusPublicityApp</string>
     <string name="titleA">전체뉴스</string>
+    <string name="titleA1">뉴스</string>
+    <string name="titleA2">사진</string>
+    <string name="titleA3">영상</string>
+
     <string name="titleB">구단소개</string>
+    <string name="titleB1">코칭스태프</string>
+    <string name="titleB2">GK</string>
+    <string name="titleB3">DF</string>
+    <string name="titleB4">MF</string>
+    <string name="titleB5">FW</string>
+    <string name="titleB6">임대</string>
+
     <string name="titleC">경기일정</string>
+    <string name="titleC1">SerieA</string>
+    <string name="titleC2">ChampionsLeague</string>
+    <string name="titleC3">개인성적</string>
+
     <string name="titleD">맴버쉽</string>
     <string name="titleE">SHOP</string>
 </resources>
