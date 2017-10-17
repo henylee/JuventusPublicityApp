@@ -1,6 +1,5 @@
 package tjeit.co.kr.juventuspublicityapp.fragment.match;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,6 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.Calendar;
+import java.util.Date;
+
+import devs.mulham.horizontalcalendar.HorizontalCalendar;
+import devs.mulham.horizontalcalendar.HorizontalCalendarListener;
+import devs.mulham.horizontalcalendar.HorizontalCalendarView;
 import tjeit.co.kr.juventuspublicityapp.R;
 
 /**
@@ -16,10 +21,15 @@ import tjeit.co.kr.juventuspublicityapp.R;
 
 public class SerieLeagueFragment extends Fragment {
 
+    private devs.mulham.horizontalcalendar.HorizontalCalendarView calendarView;
+    HorizontalCalendar horizontalCalendar;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.frag_serie, container, false);
+        this.calendarView = (HorizontalCalendarView) v.findViewById(R.id.calendarView);
+
         return v;
     }
 
@@ -32,11 +42,31 @@ public class SerieLeagueFragment extends Fragment {
     }
 
     private void setupEvents() {
+        horizontalCalendar.setCalendarListener(new HorizontalCalendarListener() {
+            @Override
+            public void onDateSelected(Date date, int position) {
 
+            }
+
+            @Override
+            public void onCalendarScroll(HorizontalCalendarView calendarView, int dx, int dy) {
+
+            }
+
+            @Override
+            public boolean onDateLongClicked(Date date, int position) {
+                return true;
+            }
+        });
     }
 
     private void setValues() {
-
+        Calendar endDate = Calendar.getInstance();
+        endDate.add(Calendar.MONTH, 1);
+        Calendar startDate = Calendar.getInstance();
+        startDate.add(Calendar.MONTH, -1);
+        horizontalCalendar =
+                new HorizontalCalendar.Builder(getActivity(), R.id.calendarView).startDate(startDate.getTime()).endDate(endDate.getTime()).build();
     }
 
 }
