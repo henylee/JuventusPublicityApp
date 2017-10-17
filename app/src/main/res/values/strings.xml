@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">JuventusPublicityApp</string>
     <string name="titleA">전체뉴스</string>
-    <string name="titleB">전체명단</string>
+    <string name="titleB">구단소개</string>
+    <string name="titleC">경기일정</string>
+    <string name="titleD">맴버쉽</string>
+    <string name="titleE">SHOP</string>
 </resources>

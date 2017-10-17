@@ -19,7 +19,7 @@ import tjeit.co.kr.juventuspublicityapp.R;
  * Created by joeun on 2017-10-16.
  */
 
-public class mainFragment extends Fragment {
+public class MainFragment extends Fragment {
 
     private com.ogaclejapan.smarttablayout.SmartTabLayout viewpagertab;
     private android.support.v4.view.ViewPager viewpager;
@@ -31,7 +31,9 @@ public class mainFragment extends Fragment {
         this.viewpager = (ViewPager) v.findViewById(R.id.viewpager);
         this.viewpagertab = (SmartTabLayout) v.findViewById(R.id.viewpagertab);
         FragmentPagerItemAdapter adapter =
-                new FragmentPagerItemAdapter(getActivity().getSupportFragmentManager(), FragmentPagerItems.with(getActivity()).add(R.string.titleA, mainFragment.class).add(R.string.titleB, mainFragment.class).create());
+                new FragmentPagerItemAdapter(getActivity().getSupportFragmentManager(), FragmentPagerItems.with(getActivity()).
+                                add(R.string.titleA, AllNewsFragment.class).add(R.string.titleB, AllPlayerFragment.class).add(R.string.titleC, MatchFragment.class).
+                                add(R.string.titleD, MemberShipFragment.class).add(R.string.titleE, ShopFragment.class).create());
         viewpager.setAdapter(adapter);
         viewpagertab.setViewPager(viewpager);
         return v;

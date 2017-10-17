@@ -23,8 +23,53 @@
                 android:tag="mainFrag"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                class="tjeit.co.kr.juventuspublicityapp.fragment.mainFragment"
+                class="tjeit.co.kr.juventuspublicityapp.fragment.MainFragment"
                 tools:layout="@layout/frag_main">
+
+            </fragment>
+
+            <fragment
+                android:tag="allnewsfrag"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                class="tjeit.co.kr.juventuspublicityapp.fragment.AllNewsFragment"
+                tools:layout="@layout/frag_allnews">
+
+            </fragment>
+
+            <fragment
+                android:tag="playerfrag"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                class="tjeit.co.kr.juventuspublicityapp.fragment.AllPlayerFragment"
+                tools:layout="@layout/frag_allplayer">
+
+            </fragment>
+
+            <fragment
+                android:tag="matchfrag"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                class="tjeit.co.kr.juventuspublicityapp.fragment.MatchFragment"
+                tools:layout="@layout/frag_match">
+
+            </fragment>
+
+            <fragment
+                android:tag="membershipfrag"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                class="tjeit.co.kr.juventuspublicityapp.fragment.MemberShipFragment"
+                tools:layout="@layout/frag_membership">
+
+            </fragment>
+
+            <fragment
+                android:tag="shopfrag"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                class="tjeit.co.kr.juventuspublicityapp.fragment.ShopFragment"
+                tools:layout="@layout/frag_shop">
 
             </fragment>
 
