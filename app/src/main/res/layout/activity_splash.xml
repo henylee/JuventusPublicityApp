@@ -9,6 +9,7 @@
     tools:context="tjeit.co.kr.juventuspublicityapp.SplashActivity">
 
     <ImageView
+        android:scaleType="fitXY"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/main_logo"/>
