@@ -28,8 +28,6 @@ public class AllNewsFragment extends Fragment {
 
     private com.ogaclejapan.smarttablayout.SmartTabLayout viewpagertab;
     private android.support.v4.view.ViewPager viewpager;
-    NewsAdapter mAdapter;
-    List<News> newsList = new ArrayList<>();
 
     @Nullable
     @Override
@@ -48,8 +46,8 @@ public class AllNewsFragment extends Fragment {
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
 
         setValues();
         setupEvents();
@@ -60,7 +58,7 @@ public class AllNewsFragment extends Fragment {
     }
 
     private void setValues() {
-        mAdapter = new NewsAdapter(getActivity(), newsList);
+
     }
 
 }
