@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
+import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItem;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems;
 
@@ -36,7 +37,7 @@ public class AllNewsFragment extends Fragment {
         this.viewpager = (ViewPager) v.findViewById(R.id.viewpager);
         this.viewpagertab = (SmartTabLayout) v.findViewById(R.id.viewpagertab);
 
-        FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(getActivity().getSupportFragmentManager(), FragmentPagerItems.with(getActivity()).
+        FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(getChildFragmentManager(), FragmentPagerItems.with(getActivity()).
                         add(R.string.titleA1, NewsFragment.class).add(R.string.titleA2, PhotoNewsFragment.class).add(R.string.titleA3, MovieNewsFragment.class).create());
         viewpager.setAdapter(adapter);
         viewpager.setOffscreenPageLimit(3);

@@ -1,6 +1,5 @@
 package tjeit.co.kr.juventuspublicityapp.fragment.players;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,13 +7,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import tjeit.co.kr.juventuspublicityapp.R;
+import tjeit.co.kr.juventuspublicityapp.adapter.PlayersAdapter;
+import tjeit.co.kr.juventuspublicityapp.data.Players;
 
 /**
  * Created by joeun on 2017-10-17.
  */
 
 public class ManagerFragment extends Fragment {
+
+    PlayersAdapter mPlayers;
+    List<Players> mPlayersList = new ArrayList<>();
 
     @Nullable
     @Override

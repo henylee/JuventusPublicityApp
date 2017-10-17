@@ -7,24 +7,26 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.GridView;
 
 import java.util.List;
 
 import tjeit.co.kr.juventuspublicityapp.R;
-import tjeit.co.kr.juventuspublicityapp.data.Players;
+import tjeit.co.kr.juventuspublicityapp.data.Photo;
+import tjeit.co.kr.juventuspublicityapp.fragment.news.PhotoNewsFragment;
 
 /**
  * Created by joeun on 2017-10-17.
  */
 
-public class PlayersAdapter extends ArrayAdapter<Players> {
+public class PhotoNewsAdapter extends ArrayAdapter<Photo> {
 
     Context mContext;
-    List<Players> mList;
+    List<Photo> mList;
     LayoutInflater inf;
 
-    public PlayersAdapter(Context context, List<Players> list) {
-        super(context, R.layout.player_list_item, list);
+    public PhotoNewsAdapter(Context context, List<Photo> list) {
+        super(context, R.layout.photo_news_list_item, list);
 
         mContext = context;
         mList = list;
@@ -37,8 +39,16 @@ public class PlayersAdapter extends ArrayAdapter<Players> {
         View row = convertView;
 
         if (row==null) {
-            row = inf.inflate(R.layout.player_list_item, null);
+            row = inf.inflate(R.layout.photo_news_list_item, null);
         }
+
+        GridView photoNewsListView = (GridView) row.findViewById(R.id.photoNewsListView);
+
         return row;
+    }
+
+    @Override
+    public int getCount() {
+        return 15;
     }
 }

@@ -35,7 +35,7 @@ public class MatchFragment extends Fragment {
         this.viewpager = (ViewPager) v.findViewById(R.id.viewpager);
         this.viewpagertab = (SmartTabLayout) v.findViewById(R.id.viewpagertab);
         FragmentPagerItemAdapter adapter =
-                new FragmentPagerItemAdapter(getActivity().getSupportFragmentManager(), FragmentPagerItems.with(getActivity()).
+                new FragmentPagerItemAdapter(getChildFragmentManager(), FragmentPagerItems.with(getActivity()).
                         add(R.string.titleC1, SerieLeagueFragment.class).add(R.string.titleC2, ChampionsLeagueFragment.class).add(R.string.titleC3, IndiGradeFragment.class).create());
         viewpager.setAdapter(adapter);
         viewpager.setOffscreenPageLimit(3);
