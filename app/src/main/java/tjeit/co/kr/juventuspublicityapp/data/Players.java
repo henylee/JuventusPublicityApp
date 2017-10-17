@@ -15,12 +15,13 @@ public class Players implements Serializable {
     private int join;
     private int nationalGame;
     private int clubGame;
+    private String profileImg;
 
     public Players() {
 
     }
 
-    public Players(int id, String name, String national, int backNumber, int join, int nationalGame, int clubGame) {
+    public Players(int id, String name, String national, int backNumber, int join, int nationalGame, int clubGame, String profileImg) {
         this.id = id;
         this.name = name;
         this.national = national;
@@ -28,6 +29,7 @@ public class Players implements Serializable {
         this.join = join;
         this.nationalGame = nationalGame;
         this.clubGame = clubGame;
+        this.profileImg = profileImg;
     }
 
     public int getId() {
@@ -84,5 +86,13 @@ public class Players implements Serializable {
 
     public void setClubGame(int clubGame) {
         this.clubGame = clubGame;
+    }
+
+    public String getProfileImg() {
+        return profileImg;
+    }
+
+    public void setProfileImg(String profileImg) {
+        this.profileImg = profileImg;
     }
 }
