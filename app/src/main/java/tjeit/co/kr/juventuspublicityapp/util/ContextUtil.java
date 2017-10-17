@@ -10,5 +10,9 @@ import tjeit.co.kr.juventuspublicityapp.data.Players;
  */
 
 public class ContextUtil {
-    public  static  List<Players> AllPlayers = new ArrayList<>();
+    public  static  List<Players> GKPlayers = new ArrayList<>();
+    public  static  List<Players> DFPlayers = new ArrayList<>();
+    public  static  List<Players> MFPlayers = new ArrayList<>();
+    public  static  List<Players> FWPlayers = new ArrayList<>();
+    public  static  List<Players> LeasePlayers = new ArrayList<>();
 }

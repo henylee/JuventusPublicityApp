@@ -47,7 +47,7 @@ public class GKFragment extends Fragment {
     }
 
     private void setValues() {
-        playersList.addAll(ContextUtil.AllPlayers);
+        playersList.addAll(ContextUtil.GKPlayers);
         mPlayers = new PlayersAdapter(getActivity(), playersList);
         playerListView.setAdapter(mPlayers);
     }

@@ -37,6 +37,10 @@ public class SplashActivity extends BaseActivity {
     @Override
     public void setValues() {
         GlobalData.addGK();
+        GlobalData.addDF();
+        GlobalData.addMF();
+        GlobalData.addFW();
+        GlobalData.addLease();
     }
 
     @Override
