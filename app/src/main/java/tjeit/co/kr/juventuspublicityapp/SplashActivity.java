@@ -6,6 +6,8 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import tjeit.co.kr.juventuspublicityapp.util.GlobalData;
+
 public class SplashActivity extends BaseActivity {
 
     @Override
@@ -34,7 +36,7 @@ public class SplashActivity extends BaseActivity {
 
     @Override
     public void setValues() {
-
+        GlobalData.addGK();
     }
 
     @Override

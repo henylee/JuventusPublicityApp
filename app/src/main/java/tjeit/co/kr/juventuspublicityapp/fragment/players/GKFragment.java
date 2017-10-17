@@ -14,6 +14,7 @@ import java.util.List;
 import tjeit.co.kr.juventuspublicityapp.R;
 import tjeit.co.kr.juventuspublicityapp.adapter.PlayersAdapter;
 import tjeit.co.kr.juventuspublicityapp.data.Players;
+import tjeit.co.kr.juventuspublicityapp.util.ContextUtil;
 
 /**
  * Created by joeun on 2017-10-17.
@@ -46,6 +47,7 @@ public class GKFragment extends Fragment {
     }
 
     private void setValues() {
+        playersList.addAll(ContextUtil.AllPlayers);
         mPlayers = new PlayersAdapter(getActivity(), playersList);
         playerListView.setAdapter(mPlayers);
     }

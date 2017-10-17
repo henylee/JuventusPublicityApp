@@ -38,7 +38,6 @@
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
-
                 <TextView
                     android:id="@+id/joinTxt"
                     android:layout_width="wrap_content"
@@ -58,13 +57,30 @@
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/backNumTxt"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="등번호 : 1번"
-                android:textColor="#000000"
-                android:textSize="15sp" />
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/backNumTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="등번호 : 1번"
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/nationTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="55dp"
+                    android:text="국가 : 이탈리아"
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
