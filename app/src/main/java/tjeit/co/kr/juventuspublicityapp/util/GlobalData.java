@@ -1,6 +1,9 @@
 package tjeit.co.kr.juventuspublicityapp.util;
 
+import android.content.Context;
+
 import tjeit.co.kr.juventuspublicityapp.data.Players;
+import tjeit.co.kr.juventuspublicityapp.data.TeamMatch;
 
 /**
  * Created by joeun on 2017-10-17.
@@ -49,8 +52,32 @@ public class GlobalData {
 
     public static void addLease() {
         ContextUtil.LeasePlayers.clear();
-        ContextUtil.LeasePlayers.add(new Players(0, "도글라스 코스타(뮌헨에서 임대)\n(Douglas Costa de Souza)", "브라질", 11, 2017, 21, 6, "http://www.juventus.com/media/images/news-images/2017-18/grafiche/calciomercato/Juventus_PED_Luglio-2017_Benvenuto%20Costa_News.png"));
-        ContextUtil.LeasePlayers.add(new Players(1, "베네딕트 회베데스(샬케에서 임대)\n(Benedikt Höwedes)", "독일", 21, 2017, 44, 0, "http://www.juventus.com/media/images/news-images/2017-18/grafiche/calciomercato/Juventus_Benvenuto_News_Benedikt%20Howedes.jpg"));
-        ContextUtil.LeasePlayers.add(new Players(2, "다니엘레 루가니(엠폴리로 임대)\n(Daniele Rugani)", "이탈리아", 24, 2013, 1, 19, "http://www.juventus.com/media/images/news-images/2016-17/partite/rugani_jempoli.jpg"));
+        ContextUtil.LeasePlayers.add(new Players(0, "도글라스 코스타 (뮌헨에서 임대)\n(Douglas Costa de Souza)", "브라질", 11, 2017, 21, 6, "http://www.juventus.com/media/images/news-images/2017-18/grafiche/calciomercato/Juventus_PED_Luglio-2017_Benvenuto%20Costa_News.png"));
+        ContextUtil.LeasePlayers.add(new Players(1, "베네딕트 회베데스 (샬케에서 임대)\n(Benedikt Höwedes)", "독일", 21, 2017, 44, 0, "http://www.juventus.com/media/images/news-images/2017-18/grafiche/calciomercato/Juventus_Benvenuto_News_Benedikt%20Howedes.jpg"));
+        ContextUtil.LeasePlayers.add(new Players(2, "다니엘레 루가니 (엠폴리로 임대)\n(Daniele Rugani)", "이탈리아", 24, 2013, 1, 19, "http://www.juventus.com/media/images/news-images/2016-17/partite/rugani_jempoli.jpg"));
+    }
+
+    public static void allTeamRanking() {
+        ContextUtil.Ranking.clear();
+        ContextUtil.Ranking.add(new TeamMatch(0, 1, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZUEMQcFKm0qwSIa-PVgQFDrsBKsH2L8G52hTzmnpe0x10LAdb", "SSC 나폴리", 8,24,8,0,0,26,5,21));
+        ContextUtil.Ranking.add(new TeamMatch(1, 2, "https://ae01.alicdn.com/kf/HTB1RDLmLVXXXXa_aXXXq6xXFXXXJ/DIY-Diamond-Painting-Inter-Milan-emblem-Group-Painting-kid-room-decor-print-poster-picture-basketball-fans.jpg_640x640.jpg", "FC 인터밀란", 8,22,7,1,0,17,5,12));
+        ContextUtil.Ranking.add(new TeamMatch(2, 3, "http://1000logos.net/wp-content/uploads/2017/03/Juventus-Logo.png", "유벤투스 FC", 8,19,6,1,1,21,7,14));
+        ContextUtil.Ranking.add(new TeamMatch(3, 4, "http://mblogthumb3.phinf.naver.net/20160709_290/yj120011_1468040604531WN7wJ_PNG/1410467022_fc-lazio.png?type=w2", "SS 라치오", 8,19,6,1,1,21,10,11));
+        ContextUtil.Ranking.add(new TeamMatch(4, 5, "http://mblogthumb2.phinf.naver.net/20160903_109/yj120011_14729093317232b7dh_PNG/1410465414_fc-roma.png?type=w2", "AS 로마", 7,15,5,0,2,14,5,9));
+        ContextUtil.Ranking.add(new TeamMatch(5, 6, "https://cdn.clien.net/web/api/file//F01/4731737/0ac2b29a005d4c71a2f.JPG", "UC 삼프도리아", 7,14,4,2,1,11,9,2));
+        ContextUtil.Ranking.add(new TeamMatch(6, 7, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRo1ITFHGJARFOj3wTMKmL2ybLIdaehHU1-hS6qtA49-N1MQm-S", "볼로냐 FC 1909", 8,14,4,2,2,8,8,0));
+        ContextUtil.Ranking.add(new TeamMatch(7, 8, "http://www.forza27.com/wp-content/uploads/2014/08/torino-fc-hd-logo.png", "토리노 FC", 8,13,3,4,1,14,13,1));
+        ContextUtil.Ranking.add(new TeamMatch(8, 9, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0QGwoo9Nlh3jzOGuFaJ899lV23D0-ezl6Txx5Xo272IF5XREP", "AC 키에보베로나", 8,12,3,3,2,9,9,0));
+        ContextUtil.Ranking.add(new TeamMatch(9, 10, "https://pbs.twimg.com/profile_images/1409496886/milan_logo.jpg", "AC 밀란", 8,12,4,0,4,12,13,-1));
+        ContextUtil.Ranking.add(new TeamMatch(10, 11, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTev4y9ZfVGpOYOUc1WOQYCxhcsN1Z5kueW-Ku4mL4zmiyLBNo2", "ACF 피오렌티나", 8,10,3,1,4,12,11,1));
+        ContextUtil.Ranking.add(new TeamMatch(11, 12, "https://botw-pd.s3.amazonaws.com/styles/logo-thumbnail/s3/112016/untitled-1_124.jpg?itok=TvMkqHuw", "아탈란타 BC", 8,9,2,3,3,13,13,0));
+        ContextUtil.Ranking.add(new TeamMatch(12, 13, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSwAmx6CKrcUGtca4V22divOPgX3LvCRaVY1q3Q5yqRmucZD1d", "우디네세 칼초", 8,6,2,0,6,13,15,-2));
+        ContextUtil.Ranking.add(new TeamMatch(13, 14, "http://kassiesa.net/uefa/clubs/images/Cagliari.png", "칼리아리 칼초", 8,6,2,0,6,6,14,-8));
+        ContextUtil.Ranking.add(new TeamMatch(14, 15, "https://cdn.mirror.wiki/https://upload.wikimedia.org/wikipedia/en/2/27/FC_Crotone_Logo.png", "FC 크로토네", 8,6,1,3,4,6,14,-8));
+        ContextUtil.Ranking.add(new TeamMatch(15, 16, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQ0Bce_ySFkmzIjkMhOR9QE0ev62WEu-BTZ9lD0-2M4r4CzYgS", "헬라스 베로나", 8,6,1,3,4,4,16,-12));
+        ContextUtil.Ranking.add(new TeamMatch(16, 17, "http://www.forza27.com/wp-content/uploads/2012/10/genoa_cfc.jpg", "제노아 CFC", 8,5,1,2,5,8,13,-5));
+        ContextUtil.Ranking.add(new TeamMatch(17, 18, "http://www.kick-off.co.kr/uploadImage/0702/spal.png", "스팔 2013", 8,5,1,2,5,7,14,-7));
+        ContextUtil.Ranking.add(new TeamMatch(18, 19, "https://pbs.twimg.com/profile_images/866414715102257153/fULBtVda_400x400.jpg", "US 사수올로 칼초", 8,5,1,2,5,4,15,-11));
+        ContextUtil.Ranking.add(new TeamMatch(19, 20, "http://www.templebrewhouse.com/wp-content/uploads/sites/44/2017/09/9189-benevento.png", "베네벤토 칼초", 8,0,0,0,8,2,19,-17));
     }
 }

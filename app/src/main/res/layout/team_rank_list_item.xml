@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_marginLeft="15dp"
+            android:textColor="#000000"
+            android:id="@+id/rankTxt"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:text="1"/>
+
+        <ImageView
+            android:id="@+id/teamLogoImg"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/ic_launcher_round"/>
+
+        <TextView
+            android:layout_marginLeft="5dp"
+            android:textColor="#000000"
+            android:id="@+id/teamNameTxt"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="이름"/>
+
+        <TextView
+            android:textColor="#000000"
+            android:id="@+id/nomTxt"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:text="12"/>
+
+        <TextView
+            android:textColor="#000000"
+            android:id="@+id/vfTxt"
+            android:layout_width="37dp"
+            android:layout_height="wrap_content"
+            android:text="12"/>
+
+        <TextView
+            android:textColor="#000000"
+            android:id="@+id/winTxt"
+            android:layout_width="25dp"
+            android:layout_height="wrap_content"
+            android:text="10"/>
+
+        <TextView
+            android:textColor="#000000"
+            android:id="@+id/tieTxt"
+            android:layout_width="25dp"
+            android:layout_height="wrap_content"
+            android:text="10"/>
+
+        <TextView
+            android:textColor="#000000"
+            android:id="@+id/loseTxt"
+            android:layout_width="25dp"
+            android:layout_height="wrap_content"
+            android:text="10"/>
+
+        <TextView
+            android:textColor="#000000"
+            android:id="@+id/scoreTxt"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:text="10"/>
+
+        <TextView
+            android:textColor="#000000"
+            android:id="@+id/losePointTxt"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="10"/>
+
+        <TextView
+            android:textColor="#000000"
+            android:id="@+id/dfTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10"/>
+
+    </LinearLayout>
+
+</LinearLayout>
