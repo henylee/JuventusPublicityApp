@@ -28,7 +28,7 @@
                 android:textSize="15sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="마시밀리아노 알레그리 \n (Massimiliano Allegri)"/>
+                android:text="마시밀리아노 알레그리 \n(Massimiliano Allegri)"/>
 
             <TextView
                 android:layout_marginTop="10dp"

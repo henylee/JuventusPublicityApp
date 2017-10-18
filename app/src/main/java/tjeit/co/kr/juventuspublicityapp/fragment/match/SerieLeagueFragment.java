@@ -1,5 +1,6 @@
 package tjeit.co.kr.juventuspublicityapp.fragment.match;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -22,13 +23,20 @@ import tjeit.co.kr.juventuspublicityapp.R;
 public class SerieLeagueFragment extends Fragment {
 
     private devs.mulham.horizontalcalendar.HorizontalCalendarView calendarView;
-    HorizontalCalendar horizontalCalendar;
+    private HorizontalCalendar horizontalCalendar;
+    Date date;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.frag_serie, container, false);
         this.calendarView = (HorizontalCalendarView) v.findViewById(R.id.calendarView);
+
+        Calendar endDate = Calendar.getInstance();
+        endDate.add(Calendar.MONTH, 1);
+        Calendar startDate = Calendar.getInstance();
+        startDate.add(Calendar.MONTH, -1);
+        horizontalCalendar = new HorizontalCalendar.Builder(v, R.id.calendarView).startDate(startDate.getTime()).endDate(endDate.getTime()).datesNumberOnScreen(5).dayNameFormat("EEE").dayNumberFormat("dd").monthFormat("MMM").textSize(14f, 24f, 14f).showDayName(true).showMonthName(true).textColor(Color.LTGRAY, Color.WHITE).selectedDateBackground(Color.TRANSPARENT).build();
 
         return v;
     }
@@ -47,26 +55,12 @@ public class SerieLeagueFragment extends Fragment {
             public void onDateSelected(Date date, int position) {
 
             }
-
-            @Override
-            public void onCalendarScroll(HorizontalCalendarView calendarView, int dx, int dy) {
-
-            }
-
-            @Override
-            public boolean onDateLongClicked(Date date, int position) {
-                return true;
-            }
         });
     }
 
     private void setValues() {
-        Calendar endDate = Calendar.getInstance();
-        endDate.add(Calendar.MONTH, 1);
-        Calendar startDate = Calendar.getInstance();
-        startDate.add(Calendar.MONTH, -1);
-        horizontalCalendar =
-                new HorizontalCalendar.Builder(getActivity(), R.id.calendarView).startDate(startDate.getTime()).endDate(endDate.getTime()).build();
+
     }
+
 
 }

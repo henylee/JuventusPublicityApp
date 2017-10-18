@@ -1,6 +1,5 @@
 package tjeit.co.kr.juventuspublicityapp.fragment.match;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -14,10 +13,6 @@ import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems;
 
 import tjeit.co.kr.juventuspublicityapp.R;
-import tjeit.co.kr.juventuspublicityapp.fragment.MemberShipFragment;
-import tjeit.co.kr.juventuspublicityapp.fragment.ShopFragment;
-import tjeit.co.kr.juventuspublicityapp.fragment.news.AllNewsFragment;
-import tjeit.co.kr.juventuspublicityapp.fragment.players.AllPlayerFragment;
 
 /**
  * Created by joeun on 2017-10-17.
@@ -36,9 +31,9 @@ public class MatchFragment extends Fragment {
         this.viewpagertab = (SmartTabLayout) v.findViewById(R.id.viewpagertab);
         FragmentPagerItemAdapter adapter =
                 new FragmentPagerItemAdapter(getChildFragmentManager(), FragmentPagerItems.with(getActivity()).
-                        add(R.string.titleC1, SerieLeagueFragment.class).add(R.string.titleC2, ChampionsLeagueFragment.class).add(R.string.titleC3, IndiGradeFragment.class).create());
+                        add(R.string.titleC1, SerieLeagueFragment.class).add(R.string.titleC2, ChampionsLeagueFragment.class).add(R.string.titleC3, TeamRankFragment.class).add(R.string.titleC4, IndiRankFragment.class).create());
         viewpager.setAdapter(adapter);
-        viewpager.setOffscreenPageLimit(3);
+        viewpager.setOffscreenPageLimit(4);
         viewpagertab.setViewPager(viewpager);
         return v;
     }
