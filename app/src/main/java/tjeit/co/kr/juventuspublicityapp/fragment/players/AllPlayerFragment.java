@@ -36,7 +36,7 @@ public class AllPlayerFragment extends Fragment {
         this.viewpagertab = (SmartTabLayout) v.findViewById(R.id.viewpagertab);
         FragmentPagerItemAdapter adapter =
                 new FragmentPagerItemAdapter(getChildFragmentManager(), FragmentPagerItems.with(getActivity()).
-                        add(R.string.titleB1, ManagerFragment.class).add(R.string.titleB2, GKFragment.class).add(R.string.titleB3, DFFragment.class).
+                        add(R.string.titleB1, ManagerFragment.class).add(R.string.titleB7, StadiumFragment.class).add(R.string.titleB2, GKFragment.class).add(R.string.titleB3, DFFragment.class).
                         add(R.string.titleB4, MFFragment.class).add(R.string.titleB5, FWFragment.class).add(R.string.titleB6, LeaseFragment.class).create());
         viewpager.setAdapter(adapter);
         viewpager.setOffscreenPageLimit(6);

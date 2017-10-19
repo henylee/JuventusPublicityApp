@@ -1,10 +1,16 @@
 package tjeit.co.kr.juventuspublicityapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import tjeit.co.kr.juventuspublicityapp.fragment.match.SerieLeagueFragment;
+import tjeit.co.kr.juventuspublicityapp.fragment.news.AllNewsFragment;
+import tjeit.co.kr.juventuspublicityapp.fragment.players.AllPlayerFragment;
 
 public class MainActivity extends BaseActivity {
 
@@ -21,6 +27,11 @@ public class MainActivity extends BaseActivity {
     private LinearLayout myPagerBtn;
     private LinearLayout myPagerLayout;
     boolean mypager = false;
+    private android.widget.TextView photo;
+    private android.widget.TextView movie;
+    private android.widget.TextView allPlayer;
+    private android.widget.TextView league;
+    private TextView newsFeed;
 
 
     @Override
@@ -99,14 +110,19 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void bindViews() {
+        this.newsFeed = (TextView) findViewById(R.id.newsFeed);
         this.naviMenu = (DrawerLayout) findViewById(R.id.naviMenu);
         this.myPagerLayout = (LinearLayout) findViewById(R.id.myPagerLayout);
         this.myPagerBtn = (LinearLayout) findViewById(R.id.myPagerBtn);
         this.matchLayout = (LinearLayout) findViewById(R.id.matchLayout);
+        this.league = (TextView) findViewById(R.id.league);
         this.matchBtn = (LinearLayout) findViewById(R.id.matchBtn);
         this.playerLayout = (LinearLayout) findViewById(R.id.playerLayout);
+        this.allPlayer = (TextView) findViewById(R.id.allPlayer);
         this.playerBtn = (LinearLayout) findViewById(R.id.playerBtn);
         this.newsLayOut = (LinearLayout) findViewById(R.id.newsLayOut);
+        this.movie = (TextView) findViewById(R.id.movie);
+        this.photo = (TextView) findViewById(R.id.photo);
         this.newsBtn = (LinearLayout) findViewById(R.id.newsBtn);
 
     }
