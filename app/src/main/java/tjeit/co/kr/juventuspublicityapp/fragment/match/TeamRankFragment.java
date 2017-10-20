@@ -53,6 +53,8 @@ public class TeamRankFragment extends Fragment {
 
     private void setValues() {
 
+        "https://stackoverflow.com/questions/6432970/jsoup-posting-and-cookie";
+
         try {
             Connection.Response res = Jsoup.connect("http://sports.news.naver.com/wfootball/record/index.nhn?category=seria&tab=team").data("teamName","gameCount","gainPoint","lastResult","gainGoal","loseGoal","goalGap").method(Connection.Method.POST).execute();
             String jsonTeamRecord = res.cookie("var wfootballTeamRecord");
