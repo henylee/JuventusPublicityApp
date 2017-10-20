@@ -1,9 +1,11 @@
 package tjeit.co.kr.juventuspublicityapp.fragment.match;
 
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,10 +13,14 @@ import android.view.ViewGroup;
 import org.json.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import devs.mulham.horizontalcalendar.HorizontalCalendar;
 import devs.mulham.horizontalcalendar.HorizontalCalendarListener;
@@ -66,12 +72,44 @@ public class SerieLeagueFragment extends Fragment {
 
     private void setValues() {
 
-//        ServerUtil.getLeagueInfo(getActivity(), new ServerUtil.JsonResponseHandler() {
-//            @Override
-//            public void onResponse(JSONObject json) {
-//
-//            }
-//        });
+        GetScheduleTask task = new GetScheduleTask();
+        task.execute();
+
+    }
+
+    private class GetScheduleTask extends AsyncTask<Void, Void, Map<String,String>> {
+
+        private String numberType;
+
+        @Override
+        protected Map<String, String> doInBackground(Void... params) {
+            Map<String,String> result = new HashMap<String,String>();
+            try {
+
+                Document doc = Jsoup.connect("http://www.goal.com/kr/fixtures/team/%EC%9C%A0%EB%B2%A4%ED%88%AC%EC%8A%A4/1242?ICID=RE_TN_90").timeout(10000).get();
+
+                Elements infos = doc.select(".match-table");
+                for (Element info : infos) {
+                    Element compDate = info.select(".comp-date").first();
+                    Element status = info.select(".status").first();
+                    Element homeSpan = info.select("span").first();
+                    Element awaySpan = info.select("span").get(1);
+
+                    Log.d("홈팀", homeSpan.text());
+                    Log.d("원정팀", awaySpan.text());
+                }
+
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return result;
+        }
+
+        @Override
+        protected void onPostExecute(Map<String, String> map) {
+
+        }
 
     }
 
