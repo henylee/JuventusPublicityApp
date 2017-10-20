@@ -1,5 +1,7 @@
 package tjeit.co.kr.juventuspublicityapp.fragment.match;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -19,6 +21,9 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -71,6 +76,7 @@ public class TeamRankFragment extends Fragment {
 
     private class GetTeamRankTask extends AsyncTask<Void, Void, Map<String,String>> {
 
+        private String numberType;
 
         @Override
         protected Map<String, String> doInBackground(Void... params) {
@@ -78,6 +84,14 @@ public class TeamRankFragment extends Fragment {
             try {
 
                 Document doc = Jsoup.connect("http://m.sports.naver.com/wfootball/record/index.nhn?category=seria&tab=team").timeout(10000).get();
+
+                Element imgLogo = doc.getElementById("teamRankTemplate");
+
+                Log.d("엠블럼", imgLogo.toString());
+
+                imgLogo.getElementsByClass("emblem");
+
+
                 Elements scriptElements = doc.getElementsByTag("script");
 
                 for (Element el : scriptElements) {
@@ -98,7 +112,13 @@ public class TeamRankFragment extends Fragment {
                             playerList.add(TeamMatch.getTeamMatchFromJson(recordList.getJSONObject(i)));
                         }
 
-                        mTeam.notifyDataSetChanged();
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                mTeam.notifyDataSetChanged();
+                            }
+                        });
+
                     }
                 }
 
@@ -114,6 +134,7 @@ public class TeamRankFragment extends Fragment {
         protected void onPostExecute(Map<String, String> map) {
 
         }
+
     }
 
 }
