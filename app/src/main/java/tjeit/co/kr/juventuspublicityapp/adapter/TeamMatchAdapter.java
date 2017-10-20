@@ -59,7 +59,6 @@ public class TeamMatchAdapter extends ArrayAdapter<TeamMatch> {
         TextView dfTxt = (TextView) row.findViewById(R.id.dfTxt);
 
         rankTxt.setText(data.getRank()+"");
-        Glide.with(mContext).load(data.getTeamLogo()).into(teamLogoImg);
         teamNameTxt.setText(data.getTeamName());
         nomTxt.setText(data.getNom()+"");
         vfTxt.setText(data.getVf()+"");

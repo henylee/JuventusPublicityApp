@@ -1,5 +1,7 @@
 package tjeit.co.kr.juventuspublicityapp.fragment.match;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,15 +15,19 @@ import android.widget.ListView;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import org.jsoup.nodes.Element;
 import java.util.Map;
 
 import tjeit.co.kr.juventuspublicityapp.R;
@@ -61,26 +67,31 @@ public class TeamRankFragment extends Fragment {
 
     private void setValues() {
 
-
         GetTeamRankTask task = new GetTeamRankTask();
         task.execute();
 
-
-        playerList.addAll(ContextUtil.Ranking);
         mTeam = new TeamMatchAdapter(getActivity(), playerList);
         teamListView.setAdapter(mTeam);
     }
 
-
     private class GetTeamRankTask extends AsyncTask<Void, Void, Map<String,String>> {
 
+        private String numberType;
 
         @Override
         protected Map<String, String> doInBackground(Void... params) {
             Map<String,String> result = new HashMap<String,String>();
             try {
 
-                Document doc =Jsoup.connect("http://m.sports.naver.com/wfootball/record/index.nhn?category=seria&tab=team").timeout(10000).get();
+                Document doc = Jsoup.connect("http://m.sports.naver.com/wfootball/record/index.nhn?category=seria&tab=team").timeout(10000).get();
+
+                Element imgLogo = doc.getElementById("teamRankTemplate");
+
+                Log.d("엠블럼", imgLogo.toString());
+
+                imgLogo.getElementsByClass("emblem");
+
+
                 Elements scriptElements = doc.getElementsByTag("script");
 
                 for (Element el : scriptElements) {
@@ -96,10 +107,17 @@ public class TeamRankFragment extends Fragment {
 //                        가공된 JSON 파싱
                         JSONArray recordList = jsonObject.getJSONArray("recordList");
 
+                        playerList.clear();
                         for (int i = 0 ; i < recordList.length() ; i++) {
-                            Log.d("구단명", recordList.getJSONObject(i).getString("teamName"));
+                            playerList.add(TeamMatch.getTeamMatchFromJson(recordList.getJSONObject(i)));
                         }
 
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                mTeam.notifyDataSetChanged();
+                            }
+                        });
 
                     }
                 }
@@ -116,7 +134,7 @@ public class TeamRankFragment extends Fragment {
         protected void onPostExecute(Map<String, String> map) {
 
         }
-    }
 
+    }
 
 }

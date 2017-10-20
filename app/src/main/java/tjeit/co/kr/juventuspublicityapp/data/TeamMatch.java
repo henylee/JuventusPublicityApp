@@ -1,5 +1,8 @@
 package tjeit.co.kr.juventuspublicityapp.data;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.Serializable;
 
 /**
@@ -10,25 +13,45 @@ public class TeamMatch implements Serializable {
 
     private int id;
     private int rank;
-    private String teamLogo;
-    private String teamName;
-    private int nom;
-    private int vf;
-    private int win;
-    private int tie;
-    private int lose;
-    private int score;
-    private int losePoint;
-    private int df;
+    private String teamName; // 팀명
+    private int nom; // 경기수
+    private int vf; // 승점
+    private int win; // 승
+    private int tie; // 무
+    private int lose; // 패
+    private int score; // 득점
+    private int losePoint; // 실점
+    private int df; // 득실차
+
+    public static TeamMatch getTeamMatchFromJson(JSONObject jsonObject) {
+        TeamMatch tempTeamMatch = new TeamMatch();
+
+        try {
+            tempTeamMatch.teamName = jsonObject.getString("teamName");
+            tempTeamMatch.rank = jsonObject.getInt("rank");
+            tempTeamMatch.nom = jsonObject.getInt("gameCount");
+            tempTeamMatch.vf = jsonObject.getInt("gainPoint");
+            tempTeamMatch.win = jsonObject.getInt("won");
+            tempTeamMatch.tie = jsonObject.getInt("drawn");
+            tempTeamMatch.lose = jsonObject.getInt("lost");
+            tempTeamMatch.score = jsonObject.getInt("gainGoal");
+            tempTeamMatch.losePoint = jsonObject.getInt("loseGoal");
+            tempTeamMatch.df = jsonObject.getInt("goalGap");
+
+        }catch (JSONException e) {
+
+        }
+
+        return tempTeamMatch;
+    }
 
     public TeamMatch() {
 
     }
 
-    public TeamMatch(int id, int rank, String teamLogo, String teamName, int nom, int vf, int win, int tie, int lose, int score, int losePoint, int df) {
+    public TeamMatch(int id, int rank, String teamName, int nom, int vf, int win, int tie, int lose, int score, int losePoint, int df) {
         this.id = id;
         this.rank = rank;
-        this.teamLogo = teamLogo;
         this.teamName = teamName;
         this.nom = nom;
         this.vf = vf;
@@ -54,14 +77,6 @@ public class TeamMatch implements Serializable {
 
     public void setRank(int rank) {
         this.rank = rank;
-    }
-
-    public String getTeamLogo() {
-        return teamLogo;
-    }
-
-    public void setTeamLogo(String teamLogo) {
-        this.teamLogo = teamLogo;
     }
 
     public String getTeamName() {
