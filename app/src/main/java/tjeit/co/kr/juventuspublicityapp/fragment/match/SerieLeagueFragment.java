@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import org.json.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
@@ -19,6 +20,7 @@ import devs.mulham.horizontalcalendar.HorizontalCalendar;
 import devs.mulham.horizontalcalendar.HorizontalCalendarListener;
 import devs.mulham.horizontalcalendar.HorizontalCalendarView;
 import tjeit.co.kr.juventuspublicityapp.R;
+import tjeit.co.kr.juventuspublicityapp.util.ServerUtil;
 
 /**
  * Created by joeun on 2017-10-17.
@@ -63,6 +65,13 @@ public class SerieLeagueFragment extends Fragment {
     }
 
     private void setValues() {
+
+//        ServerUtil.getLeagueInfo(getActivity(), new ServerUtil.JsonResponseHandler() {
+//            @Override
+//            public void onResponse(JSONObject json) {
+//
+//            }
+//        });
 
     }
 

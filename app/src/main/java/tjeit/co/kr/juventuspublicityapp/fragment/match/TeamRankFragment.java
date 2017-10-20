@@ -1,20 +1,28 @@
 package tjeit.co.kr.juventuspublicityapp.fragment.match;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import org.jsoup.Connection;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import tjeit.co.kr.juventuspublicityapp.R;
 import tjeit.co.kr.juventuspublicityapp.adapter.TeamMatchAdapter;
@@ -53,18 +61,62 @@ public class TeamRankFragment extends Fragment {
 
     private void setValues() {
 
-        "https://stackoverflow.com/questions/6432970/jsoup-posting-and-cookie";
 
-        try {
-            Connection.Response res = Jsoup.connect("http://sports.news.naver.com/wfootball/record/index.nhn?category=seria&tab=team").data("teamName","gameCount","gainPoint","lastResult","gainGoal","loseGoal","goalGap").method(Connection.Method.POST).execute();
-            String jsonTeamRecord = res.cookie("var wfootballTeamRecord");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        GetTeamRankTask task = new GetTeamRankTask();
+        task.execute();
+
 
         playerList.addAll(ContextUtil.Ranking);
         mTeam = new TeamMatchAdapter(getActivity(), playerList);
         teamListView.setAdapter(mTeam);
     }
+
+
+    private class GetTeamRankTask extends AsyncTask<Void, Void, Map<String,String>> {
+
+
+        @Override
+        protected Map<String, String> doInBackground(Void... params) {
+            Map<String,String> result = new HashMap<String,String>();
+            try {
+
+                Document doc =Jsoup.connect("http://m.sports.naver.com/wfootball/record/index.nhn?category=seria&tab=team").timeout(10000).get();
+                Elements scriptElements = doc.getElementsByTag("script");
+
+                for (Element el : scriptElements) {
+                    if (el.toString().contains("var teamRecordAsJson")) {
+                        String whole = el.dataNodes().get(0).getWholeData();
+                        String var = whole.split(";")[0];
+                        String jsonString = var.split(" = ")[1];
+                        System.out.println(jsonString);
+
+                        JSONObject jsonObject = new JSONObject(jsonString);
+//                        스크립트를 분석해서 JSONObject로 가공
+
+//                        가공된 JSON 파싱
+                        JSONArray recordList = jsonObject.getJSONArray("recordList");
+
+                        for (int i = 0 ; i < recordList.length() ; i++) {
+                            Log.d("구단명", recordList.getJSONObject(i).getString("teamName"));
+                        }
+
+
+                    }
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return result;
+        }
+
+        @Override
+        protected void onPostExecute(Map<String, String> map) {
+
+        }
+    }
+
 
 }
