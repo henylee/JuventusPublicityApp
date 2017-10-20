@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
@@ -51,6 +52,14 @@ public class TeamRankFragment extends Fragment {
     }
 
     private void setValues() {
+
+        try {
+            Connection.Response res = Jsoup.connect("http://sports.news.naver.com/wfootball/record/index.nhn?category=seria&tab=team").data("teamName","gameCount","gainPoint","lastResult","gainGoal","loseGoal","goalGap").method(Connection.Method.POST).execute();
+            String jsonTeamRecord = res.cookie("var wfootballTeamRecord");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         playerList.addAll(ContextUtil.Ranking);
         mTeam = new TeamMatchAdapter(getActivity(), playerList);
         teamListView.setAdapter(mTeam);
