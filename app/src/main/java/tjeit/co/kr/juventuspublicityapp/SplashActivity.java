@@ -41,7 +41,7 @@ public class SplashActivity extends BaseActivity {
         GlobalData.addMF();
         GlobalData.addFW();
         GlobalData.addLease();
-        GlobalData.allTeamRanking();
+//        GlobalData.allTeamRanking();
     }
 
     @Override

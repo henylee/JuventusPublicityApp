@@ -96,12 +96,9 @@ public class TeamRankFragment extends Fragment {
                         playerList.clear();
                         for (int i = 0 ; i < recordList.length() ; i++) {
                             playerList.add(TeamMatch.getTeamMatchFromJson(recordList.getJSONObject(i)));
-                            Log.d("구단명", recordList.getJSONObject(i).getString("teamName"));
-                            Log.d("순위", recordList.getJSONObject(i).getString("rank"));
                         }
 
                         mTeam.notifyDataSetChanged();
-
                     }
                 }
 

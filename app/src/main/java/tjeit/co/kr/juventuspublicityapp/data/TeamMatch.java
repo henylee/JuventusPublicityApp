@@ -13,7 +13,6 @@ public class TeamMatch implements Serializable {
 
     private int id;
     private int rank;
-    private String teamLogo; // 팀 로고
     private String teamName; // 팀명
     private int nom; // 경기수
     private int vf; // 승점
@@ -50,10 +49,9 @@ public class TeamMatch implements Serializable {
 
     }
 
-    public TeamMatch(int id, int rank, String teamLogo, String teamName, int nom, int vf, int win, int tie, int lose, int score, int losePoint, int df) {
+    public TeamMatch(int id, int rank, String teamName, int nom, int vf, int win, int tie, int lose, int score, int losePoint, int df) {
         this.id = id;
         this.rank = rank;
-        this.teamLogo = teamLogo;
         this.teamName = teamName;
         this.nom = nom;
         this.vf = vf;
@@ -79,14 +77,6 @@ public class TeamMatch implements Serializable {
 
     public void setRank(int rank) {
         this.rank = rank;
-    }
-
-    public String getTeamLogo() {
-        return teamLogo;
-    }
-
-    public void setTeamLogo(String teamLogo) {
-        this.teamLogo = teamLogo;
     }
 
     public String getTeamName() {
