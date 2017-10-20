@@ -21,13 +21,13 @@ import tjeit.co.kr.juventuspublicityapp.data.TeamMatch;
  * Created by joeun on 2017-10-17.
  */
 
-public class TeamMatchAdapter extends ArrayAdapter<TeamMatch> {
+public class TeamRankAdapter extends ArrayAdapter<TeamMatch> {
 
     Context mContext;
     List<TeamMatch> mList;
     LayoutInflater inf;
 
-    public TeamMatchAdapter(Context context, List<TeamMatch> list) {
+    public TeamRankAdapter(Context context, List<TeamMatch> list) {
         super(context, R.layout.team_rank_list_item, list);
 
         mContext = context;
@@ -60,6 +60,7 @@ public class TeamMatchAdapter extends ArrayAdapter<TeamMatch> {
 
         rankTxt.setText(data.getRank()+"");
         teamNameTxt.setText(data.getTeamName());
+        Glide.with(mContext).load(data.getTeamLogo()).into(teamLogoImg);
         nomTxt.setText(data.getNom()+"");
         vfTxt.setText(data.getVf()+"");
         winTxt.setText(data.getWin()+"");

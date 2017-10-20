@@ -1,7 +1,5 @@
 package tjeit.co.kr.juventuspublicityapp.fragment.match;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -15,15 +13,11 @@ import android.widget.ListView;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -31,9 +25,8 @@ import org.jsoup.nodes.Element;
 import java.util.Map;
 
 import tjeit.co.kr.juventuspublicityapp.R;
-import tjeit.co.kr.juventuspublicityapp.adapter.TeamMatchAdapter;
+import tjeit.co.kr.juventuspublicityapp.adapter.TeamRankAdapter;
 import tjeit.co.kr.juventuspublicityapp.data.TeamMatch;
-import tjeit.co.kr.juventuspublicityapp.util.ContextUtil;
 
 /**
  * Created by Administrator on 2017-10-18.
@@ -41,7 +34,7 @@ import tjeit.co.kr.juventuspublicityapp.util.ContextUtil;
 
 public class TeamRankFragment extends Fragment {
 
-    TeamMatchAdapter mTeam;
+    TeamRankAdapter mTeam;
     List<TeamMatch> playerList=new ArrayList<>();
     private android.widget.ListView teamListView;
 
@@ -70,7 +63,7 @@ public class TeamRankFragment extends Fragment {
         GetTeamRankTask task = new GetTeamRankTask();
         task.execute();
 
-        mTeam = new TeamMatchAdapter(getActivity(), playerList);
+        mTeam = new TeamRankAdapter(getActivity(), playerList);
         teamListView.setAdapter(mTeam);
     }
 
@@ -90,7 +83,6 @@ public class TeamRankFragment extends Fragment {
                 Log.d("엠블럼", imgLogo.toString());
 
                 imgLogo.getElementsByClass("emblem");
-
 
                 Elements scriptElements = doc.getElementsByTag("script");
 

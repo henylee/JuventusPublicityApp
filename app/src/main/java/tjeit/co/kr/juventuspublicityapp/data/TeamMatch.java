@@ -22,6 +22,8 @@ public class TeamMatch implements Serializable {
     private int score; // 득점
     private int losePoint; // 실점
     private int df; // 득실차
+    private String teamLogo; // 팀 로고
+    private String teamCode;
 
     public static TeamMatch getTeamMatchFromJson(JSONObject jsonObject) {
         TeamMatch tempTeamMatch = new TeamMatch();
@@ -37,6 +39,8 @@ public class TeamMatch implements Serializable {
             tempTeamMatch.score = jsonObject.getInt("gainGoal");
             tempTeamMatch.losePoint = jsonObject.getInt("loseGoal");
             tempTeamMatch.df = jsonObject.getInt("goalGap");
+            tempTeamMatch.teamCode = jsonObject.getString("teamCode");
+            tempTeamMatch.teamLogo = "http://dthumb.phinf.naver.net/?src=http://imgsports.naver.net/images/emblem/new/worldfootball/default/"+tempTeamMatch.teamCode+".png&type=f184_184&refresh=1\" class=\"emblem\" width=\"30\" height=\"30\" alt=\"\"";
 
         }catch (JSONException e) {
 
@@ -49,7 +53,7 @@ public class TeamMatch implements Serializable {
 
     }
 
-    public TeamMatch(int id, int rank, String teamName, int nom, int vf, int win, int tie, int lose, int score, int losePoint, int df) {
+    public TeamMatch(int id, int rank, String teamName, int nom, int vf, int win, int tie, int lose, int score, int losePoint, int df, String teamLogo, String teamCode) {
         this.id = id;
         this.rank = rank;
         this.teamName = teamName;
@@ -61,6 +65,8 @@ public class TeamMatch implements Serializable {
         this.score = score;
         this.losePoint = losePoint;
         this.df = df;
+        this.teamLogo = teamLogo;
+        this.teamCode = teamCode;
     }
 
     public int getId() {
@@ -149,5 +155,21 @@ public class TeamMatch implements Serializable {
 
     public void setDf(int df) {
         this.df = df;
+    }
+
+    public String getTeamLogo() {
+        return teamLogo;
+    }
+
+    public void setTeamLogo(String teamLogo) {
+        this.teamLogo = teamLogo;
+    }
+
+    public String getTeamCode() {
+        return teamCode;
+    }
+
+    public void setTeamCode(String teamCode) {
+        this.teamCode = teamCode;
     }
 }
