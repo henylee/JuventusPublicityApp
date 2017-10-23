@@ -78,12 +78,6 @@ public class TeamRankFragment extends Fragment {
 
                 Document doc = Jsoup.connect("http://m.sports.naver.com/wfootball/record/index.nhn?category=seria&tab=team").timeout(10000).get();
 
-                Element imgLogo = doc.getElementById("teamRankTemplate");
-
-                Log.d("엠블럼", imgLogo.toString());
-
-                imgLogo.getElementsByClass("emblem");
-
                 Elements scriptElements = doc.getElementsByTag("script");
 
                 for (Element el : scriptElements) {
