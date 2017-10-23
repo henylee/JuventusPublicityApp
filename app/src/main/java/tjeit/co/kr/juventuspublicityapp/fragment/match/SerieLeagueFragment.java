@@ -22,11 +22,14 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import devs.mulham.horizontalcalendar.HorizontalCalendar;
@@ -110,14 +113,55 @@ public class SerieLeagueFragment extends Fragment {
 
                 for (Element info : infos) {
                     Element compDate = info.select(".comp-date").first();
+
+                    Calendar tempCal = Calendar.getInstance();
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 M월 d일", Locale.KOREA);
+
+                    String dateStr = compDate.text();
+
+
+                    tempCal.setTime(sdf.parse(dateStr));
+                    Log.d("tempCal", sdf.format(tempCal.getTime()));
+
                     Element status = info.select(".status").first();
+
+                    Calendar tempCal2 = Calendar.getInstance();
+                    SimpleDateFormat timeSdf = new SimpleDateFormat("a h:mm", Locale.KOREA);
+
+                    String timeStr = status.text();
+
+                    if (!timeStr.equals("—")) {
+
+                        tempCal2.setTime(timeSdf.parse(timeStr));
+                        Log.d("timeStr", timeSdf.format(tempCal2.getTime()));
+                    }
+
+                    tempCal.set(Calendar.HOUR_OF_DAY, tempCal2.get(Calendar.HOUR_OF_DAY));
+                    tempCal.set(Calendar.MINUTE, tempCal2.get(Calendar.MINUTE));
+
+//                    tempCal에 경기 일시 정보 저장
+
+
+
                     Element homeSpan = info.select("span").first();
                     Element awaySpan = info.select("span").get(1);
                     Element homeImg = info.select("img").first();
+
+                    String homeImgURL = homeImg.attr("src");
+                    Log.d("homeURL", homeImgURL);
+
                     Element awayImg = info.select("img").get(1);
+
+                    Match tempMatch = new Match();
+                    tempMatch.setDateTime(tempCal);
+                    tempMatch.setHomeTeamImg(homeImgURL);
+
+                    matchList.add(tempMatch);
 
                 }
             } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ParseException e) {
                 e.printStackTrace();
             }
 

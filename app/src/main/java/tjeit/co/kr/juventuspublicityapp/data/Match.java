@@ -1,6 +1,7 @@
 package tjeit.co.kr.juventuspublicityapp.data;
 
 import java.io.Serializable;
+import java.util.Calendar;
 
 /**
  * Created by joeun on 2017-10-20.
@@ -8,6 +9,7 @@ import java.io.Serializable;
 
 public class Match implements Serializable {
 
+    private Calendar dateTime;
     private String homeTeamNam;
     private String homeTeamImg;
     private String awayTeamName;
@@ -17,11 +19,20 @@ public class Match implements Serializable {
 
     }
 
-    public Match(String homeTeamNam, String homeTeamImg, String awayTeamName, String awayTeamImg) {
+    public Match(Calendar dateTime, String homeTeamNam, String homeTeamImg, String awayTeamName, String awayTeamImg) {
+        this.dateTime = dateTime;
         this.homeTeamNam = homeTeamNam;
         this.homeTeamImg = homeTeamImg;
         this.awayTeamName = awayTeamName;
         this.awayTeamImg = awayTeamImg;
+    }
+
+    public Calendar getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(Calendar dateTime) {
+        this.dateTime = dateTime;
     }
 
     public String getHomeTeamNam() {
