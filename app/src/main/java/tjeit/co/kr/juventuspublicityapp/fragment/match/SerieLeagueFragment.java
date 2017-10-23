@@ -72,7 +72,7 @@ public class SerieLeagueFragment extends Fragment {
         this.calendarView = (HorizontalCalendarView) v.findViewById(R.id.calendarView);
 
         Calendar endDate = Calendar.getInstance();
-        endDate.add(Calendar.MONTH, 7);
+        endDate.add(Calendar.MONTH, 8);
         Calendar startDate = Calendar.getInstance();
         startDate.add(Calendar.MONTH, -2);
         horizontalCalendar = new HorizontalCalendar.Builder(v, R.id.calendarView).startDate(startDate.getTime()).endDate(endDate.getTime()).datesNumberOnScreen(5).dayNameFormat("EEE").dayNumberFormat("dd").monthFormat("MMM").textSize(14f, 24f, 14f).showDayName(true).showMonthName(true).textColor(Color.LTGRAY, Color.WHITE).selectedDateBackground(Color.TRANSPARENT).build();
@@ -104,7 +104,6 @@ public class SerieLeagueFragment extends Fragment {
                 }
 
                 if (showMatch != null) {
-
                     matchLayout.setVisibility(View.VISIBLE);
                     notMatchLayout.setVisibility(View.GONE);
                     homeTeamNameTxt.setText(showMatch.getHomeTeamName());
