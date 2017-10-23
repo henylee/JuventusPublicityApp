@@ -10,7 +10,7 @@ import java.util.Calendar;
 public class Match implements Serializable {
 
     private Calendar dateTime;
-    private String homeTeamNam;
+    private String homeTeamName;
     private String homeTeamImg;
     private String awayTeamName;
     private String awayTeamImg;
@@ -19,9 +19,9 @@ public class Match implements Serializable {
 
     }
 
-    public Match(Calendar dateTime, String homeTeamNam, String homeTeamImg, String awayTeamName, String awayTeamImg) {
+    public Match(Calendar dateTime, String homeTeamName, String homeTeamImg, String awayTeamName, String awayTeamImg) {
         this.dateTime = dateTime;
-        this.homeTeamNam = homeTeamNam;
+        this.homeTeamName = homeTeamName;
         this.homeTeamImg = homeTeamImg;
         this.awayTeamName = awayTeamName;
         this.awayTeamImg = awayTeamImg;
@@ -35,12 +35,12 @@ public class Match implements Serializable {
         this.dateTime = dateTime;
     }
 
-    public String getHomeTeamNam() {
-        return homeTeamNam;
+    public String getHomeTeamName() {
+        return homeTeamName;
     }
 
-    public void setHomeTeamNam(String homeTeamNam) {
-        this.homeTeamNam = homeTeamNam;
+    public void setHomeTeamName(String homeTeamNam) {
+        this.homeTeamName = homeTeamNam;
     }
 
     public String getHomeTeamImg() {

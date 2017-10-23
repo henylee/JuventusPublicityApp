@@ -12,6 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -91,12 +94,28 @@ public class SerieLeagueFragment extends Fragment {
         horizontalCalendar.setCalendarListener(new HorizontalCalendarListener() {
             @Override
             public void onDateSelected(Date date, int position) {
+                Calendar tempCalendar=Calendar.getInstance();
+                tempCalendar.setTime(date);
+                for (Match match : matchList) {
+                    if (match.getDateTime().get(Calendar.DAY_OF_MONTH)==tempCalendar.get(Calendar.DAY_OF_MONTH)&&
+                            match.getDateTime().get(Calendar.MONTH)==tempCalendar.get(Calendar.MONTH)
+                            &&match.getDateTime().get(Calendar.YEAR)==tempCalendar.get(Calendar.YEAR)) {
+                        homeTeamNameTxt.setText(match.getHomeTeamName());
+                        Glide.with(getActivity()).load(match.getHomeTeamImg()).into(homeTeamImg);
+                        awayTeamNameTxt.setText(match.getAwayTeamName());
+                        Glide.with(getActivity()).load(match.getAwayTeamImg()).into(awayTeamImg);
+                        SimpleDateFormat timeSdf = new SimpleDateFormat("a h:mm", Locale.KOREA);
+                        String str = timeSdf.format(match.getDateTime());
+                        timeTxt.setText(str);
 
+                    }
+                }
             }
         });
     }
 
     private void setValues() {
+
         GetScheduleTask task = new SerieLeagueFragment.GetScheduleTask();
         task.execute();
     }
@@ -116,22 +135,15 @@ public class SerieLeagueFragment extends Fragment {
 
                     Calendar tempCal = Calendar.getInstance();
                     SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 M월 d일", Locale.KOREA);
-
                     String dateStr = compDate.text();
-
-
                     tempCal.setTime(sdf.parse(dateStr));
-                    Log.d("tempCal", sdf.format(tempCal.getTime()));
 
                     Element status = info.select(".status").first();
-
                     Calendar tempCal2 = Calendar.getInstance();
                     SimpleDateFormat timeSdf = new SimpleDateFormat("a h:mm", Locale.KOREA);
-
                     String timeStr = status.text();
 
                     if (!timeStr.equals("—")) {
-
                         tempCal2.setTime(timeSdf.parse(timeStr));
                         Log.d("timeStr", timeSdf.format(tempCal2.getTime()));
                     }
@@ -141,9 +153,8 @@ public class SerieLeagueFragment extends Fragment {
 
 //                    tempCal에 경기 일시 정보 저장
 
-
-
                     Element homeSpan = info.select("span").first();
+
                     Element awaySpan = info.select("span").get(1);
                     Element homeImg = info.select("img").first();
 
@@ -152,9 +163,14 @@ public class SerieLeagueFragment extends Fragment {
 
                     Element awayImg = info.select("img").get(1);
 
+                    String awayImgURL = awayImg.attr("src");
+
                     Match tempMatch = new Match();
                     tempMatch.setDateTime(tempCal);
                     tempMatch.setHomeTeamImg(homeImgURL);
+                    tempMatch.setAwayTeamImg(awayImgURL);
+                    tempMatch.setHomeTeamName(homeSpan.text());
+                    tempMatch.setAwayTeamName(awaySpan.text());
 
                     matchList.add(tempMatch);
 
