@@ -11,14 +11,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -40,7 +37,6 @@ import devs.mulham.horizontalcalendar.HorizontalCalendarListener;
 import devs.mulham.horizontalcalendar.HorizontalCalendarView;
 import tjeit.co.kr.juventuspublicityapp.R;
 import tjeit.co.kr.juventuspublicityapp.data.Match;
-import tjeit.co.kr.juventuspublicityapp.data.TeamMatch;
 
 /**
  * Created by joeun on 2017-10-17.
@@ -58,13 +54,16 @@ public class SerieLeagueFragment extends Fragment {
     private android.widget.TextView timeTxt;
     private android.widget.ImageView awayTeamImg;
     private android.widget.TextView awayTeamNameTxt;
-    private android.widget.TextView notMatchTxt;
+    private android.widget.LinearLayout matchLayout;
+    boolean matchs = false;
+    private LinearLayout notMatchLayout;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.frag_serie, container, false);
-        this.notMatchTxt = (TextView) v.findViewById(R.id.notMatchTxt);
+        this.notMatchLayout = (LinearLayout) v.findViewById(R.id.notMatchLayout);
+        this.matchLayout = (LinearLayout) v.findViewById(R.id.matchLayout);
         this.awayTeamNameTxt = (TextView) v.findViewById(R.id.awayTeamNameTxt);
         this.awayTeamImg = (ImageView) v.findViewById(R.id.awayTeamImg);
         this.timeTxt = (TextView) v.findViewById(R.id.timeTxt);
@@ -97,17 +96,26 @@ public class SerieLeagueFragment extends Fragment {
                 Calendar tempCalendar=Calendar.getInstance();
                 tempCalendar.setTime(date);
                 for (Match match : matchList) {
-                    if (match.getDateTime().get(Calendar.DAY_OF_MONTH)==tempCalendar.get(Calendar.DAY_OF_MONTH)&&
+                    if (match.getDateTime().get(Calendar.DAY_OF_MONTH) == tempCalendar.get(Calendar.DAY_OF_MONTH) &&
                             match.getDateTime().get(Calendar.MONTH)==tempCalendar.get(Calendar.MONTH)
                             &&match.getDateTime().get(Calendar.YEAR)==tempCalendar.get(Calendar.YEAR)) {
-                        homeTeamNameTxt.setText(match.getHomeTeamName());
-                        Glide.with(getActivity()).load(match.getHomeTeamImg()).into(homeTeamImg);
-                        awayTeamNameTxt.setText(match.getAwayTeamName());
-                        Glide.with(getActivity()).load(match.getAwayTeamImg()).into(awayTeamImg);
-                        SimpleDateFormat timeSdf = new SimpleDateFormat("a h:mm", Locale.KOREA);
-                        String str = timeSdf.format(match.getDateTime());
-                        timeTxt.setText(str);
-
+                        if (!matchs) {
+                            matchs=true;
+                            matchLayout.setVisibility(View.VISIBLE);
+                            notMatchLayout.setVisibility(View.GONE);
+                            homeTeamNameTxt.setText(match.getHomeTeamName());
+                            Glide.with(getActivity()).load(match.getHomeTeamImg()).into(homeTeamImg);
+                            awayTeamNameTxt.setText(match.getAwayTeamName());
+                            Glide.with(getActivity()).load(match.getAwayTeamImg()).into(awayTeamImg);
+                            SimpleDateFormat timeSdf = new SimpleDateFormat("a h:mm", Locale.KOREA);
+                            String str = timeSdf.format(match.getDateTime().getTime());
+                            timeTxt.setText(str);
+                        }
+                        else {
+                            matchs=false;
+                            matchLayout.setVisibility(View.GONE);
+                            notMatchLayout.setVisibility(View.VISIBLE);
+                        }
                     }
                 }
             }

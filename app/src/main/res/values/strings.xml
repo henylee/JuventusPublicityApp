@@ -15,10 +15,9 @@
     <string name="titleB7">경기장</string>
 
     <string name="titleC">경기일정</string>
-    <string name="titleC1">Serie A</string>
-    <string name="titleC2">Champions League</string>
-    <string name="titleC3">팀순위</string>
-    <string name="titleC4">개인순위</string>
+    <string name="titleC1">Serie A / Champions League</string>
+    <string name="titleC2">팀순위</string>
+    <string name="titleC3">개인순위</string>
 
     <string name="titleD">맴버쉽</string>
     <string name="titleE">SHOP</string>
