@@ -55,7 +55,6 @@ public class SerieLeagueFragment extends Fragment {
     private android.widget.ImageView awayTeamImg;
     private android.widget.TextView awayTeamNameTxt;
     private android.widget.LinearLayout matchLayout;
-    boolean matchs = false;
     private LinearLayout notMatchLayout;
 
     @Nullable
@@ -95,29 +94,32 @@ public class SerieLeagueFragment extends Fragment {
             public void onDateSelected(Date date, int position) {
                 Calendar tempCalendar=Calendar.getInstance();
                 tempCalendar.setTime(date);
+                Match showMatch = null;
                 for (Match match : matchList) {
                     if (match.getDateTime().get(Calendar.DAY_OF_MONTH) == tempCalendar.get(Calendar.DAY_OF_MONTH) &&
                             match.getDateTime().get(Calendar.MONTH)==tempCalendar.get(Calendar.MONTH)
                             &&match.getDateTime().get(Calendar.YEAR)==tempCalendar.get(Calendar.YEAR)) {
-                        if (!matchs) {
-                            matchs=true;
-                            matchLayout.setVisibility(View.VISIBLE);
-                            notMatchLayout.setVisibility(View.GONE);
-                            homeTeamNameTxt.setText(match.getHomeTeamName());
-                            Glide.with(getActivity()).load(match.getHomeTeamImg()).into(homeTeamImg);
-                            awayTeamNameTxt.setText(match.getAwayTeamName());
-                            Glide.with(getActivity()).load(match.getAwayTeamImg()).into(awayTeamImg);
-                            SimpleDateFormat timeSdf = new SimpleDateFormat("a h:mm", Locale.KOREA);
-                            String str = timeSdf.format(match.getDateTime().getTime());
-                            timeTxt.setText(str);
-                        }
-                        else {
-                            matchs=false;
-                            matchLayout.setVisibility(View.GONE);
-                            notMatchLayout.setVisibility(View.VISIBLE);
-                        }
+                        showMatch = match;
                     }
                 }
+
+                if (showMatch != null) {
+
+                    matchLayout.setVisibility(View.VISIBLE);
+                    notMatchLayout.setVisibility(View.GONE);
+                    homeTeamNameTxt.setText(showMatch.getHomeTeamName());
+                    Glide.with(getActivity()).load(showMatch.getHomeTeamImg()).into(homeTeamImg);
+                    awayTeamNameTxt.setText(showMatch.getAwayTeamName());
+                    Glide.with(getActivity()).load(showMatch.getAwayTeamImg()).into(awayTeamImg);
+                    SimpleDateFormat timeSdf = new SimpleDateFormat("a h:mm", Locale.KOREA);
+                    String str = timeSdf.format(showMatch.getDateTime().getTime());
+                    timeTxt.setText(str);
+                }
+                else {
+                    matchLayout.setVisibility(View.GONE);
+                    notMatchLayout.setVisibility(View.VISIBLE);
+                }
+
             }
         });
     }
