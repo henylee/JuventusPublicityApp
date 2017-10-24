@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerSupportFragment;
+import com.google.android.youtube.player.YouTubeThumbnailView;
 
 import tjeit.co.kr.juventuspublicityapp.R;
 
@@ -25,10 +26,12 @@ public class MovieNewsFragment extends Fragment {
     public static YouTubePlayer youtubePlayer;
     final String serverKey = "AIzaSyC6a9PrdiwmDdTB_nAlMfnrPaE80sxDcHA";
 
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.frag_movie, container, false);
+
         return v;
     }
 
@@ -52,11 +55,11 @@ public class MovieNewsFragment extends Fragment {
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
                 youtubePlayer = youTubePlayer;
                 youtubePlayer.cueVideo("lsm5TDuAf5A");
+                youTubePlayer
             }
 
             @Override
             public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
-
             }
         });
 
