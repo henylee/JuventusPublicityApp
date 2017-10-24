@@ -5,11 +5,11 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:background="#ffffff"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:orientation="vertical">
 
         <fragment
             android:id="@+id/youtubeFrag"
@@ -18,89 +18,101 @@
             android:layout_height="200dp" />
 
         <LinearLayout
-            android:padding="4dp"
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="4dp">
+
             <TextView
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Udinese vs Juventus 2-6 - All Goals, \n Highlights - 22/10/2017 HD"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Udinese vs Juventus 2-6 - All Goals, \nHighlights - 22/10/2017 HD"
+                android:textColor="#000000"
                 android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="#000000"/>
+                android:textStyle="bold" />
+
             <LinearLayout
-                android:padding="5dp"
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="60dp">
+                android:layout_height="60dp"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
                 <ImageView
-                    android:layout_gravity="center"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@mipmap/ic_launcher"/>
+                    android:layout_gravity="center"
+                    android:src="@mipmap/ic_launcher" />
+
                 <LinearLayout
-                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp">
+                    android:layout_height="60dp"
+                    android:orientation="vertical">
+
                     <TextView
-                        android:padding="5dp"
-                        android:layout_marginLeft="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:padding="5dp"
                         android:text="Premium Sintesi 2 "
-                        android:textSize="12sp"
-                        android:textColor="#000000"/>
+                        android:textColor="#000000"
+                        android:textSize="12sp" />
+
                     <LinearLayout
-                        android:paddingBottom="5dp"
-                        android:paddingLeft="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="5dp">
+
                         <TextView
-                            android:gravity="center"
-                            android:padding="3dp"
                             android:layout_width="50dp"
                             android:layout_height="wrap_content"
                             android:background="#ff0000"
-                            android:text="구독"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:textColor="#ffffff"/>
-                        <TextView
                             android:gravity="center"
                             android:padding="3dp"
+                            android:text="구독"
+                            android:textColor="#ffffff"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <TextView
                             android:layout_width="70dp"
                             android:layout_height="wrap_content"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:padding="3dp"
                             android:text="320만"
-                            android:textSize="12sp"
-                            android:background="#ffffff"/>
+                            android:textSize="12sp" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
+
             <LinearLayout
-                android:padding="5dp"
-                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="5dp">
+
                 <LinearLayout
-                    android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="게시일:"
-                        android:textSize="12sp"/>
+                        android:textSize="12sp" />
+
                     <TextView
-                        android:layout_marginLeft="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
                         android:text="2017. 10. 22."
-                        android:textSize="12sp"/>
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <TextView
@@ -108,20 +120,20 @@
                     android:layout_height="wrap_content"
                     android:text="Premium Sintesi
 Udinese vs Juventus 2-6 Highlights / Goals
-Serie A, 22 Ottobre 2017.
+\nSerie A, 22 Ottobre 2017.
 
-1-0 Perica
-1-1 Samir(autogol)
-1-2 Khedira
-2-2 Danilo
-2-3 Rugani
-2-4 Khedira
-2-5 Khedira
-2-6 Pjanic
+\n1-0 Perica
+\n1-1 Samir(autogol)
+\n1-2 Khedira
+\n2-2 Danilo
+\n2-3 Rugani
+\n2-4 Khedira
+\n2-5 Khedira
+\n2-6 Pjanic
 
-Udinese, Juventus, 2-6, Highlights, Goals, 22, Ottobre, 2017, Udinese vs Juventus, Udinese vs Juventus 2-6, Udinese vs Juventus gol, Udinese vs Juventus 2017,
-Udinese vs Juventus highlights, Udinese vs Juventus all goals, Premium, Sintesi, 2x6, Friendly, Skills, HD, Serie A, Mandzukic, Khedira, Perica, Danilo, Rugani, Pjanic"
-                    android:textSize="12sp"/>
+\nUdinese, Juventus, 2-6, Highlights, Goals, 22, Ottobre, 2017, Udinese vs Juventus, Udinese vs Juventus 2-6, Udinese vs Juventus gol, Udinese vs Juventus 2017,
+\nUdinese vs Juventus highlights, Udinese vs Juventus all goals, Premium, Sintesi, 2x6, Friendly, Skills, HD, Serie A, Mandzukic, Khedira, Perica, Danilo, Rugani, Pjanic"
+                    android:textSize="12sp" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

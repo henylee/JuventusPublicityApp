@@ -1,6 +1,5 @@
 package tjeit.co.kr.juventuspublicityapp.fragment.news;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,6 +10,7 @@ import android.view.ViewGroup;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerSupportFragment;
+import com.google.android.youtube.player.YouTubeThumbnailLoader;
 import com.google.android.youtube.player.YouTubeThumbnailView;
 
 import tjeit.co.kr.juventuspublicityapp.R;
@@ -25,13 +25,13 @@ public class MovieNewsFragment extends Fragment {
 
     public static YouTubePlayer youtubePlayer;
     final String serverKey = "AIzaSyC6a9PrdiwmDdTB_nAlMfnrPaE80sxDcHA";
+    private YouTubeThumbnailView thumbnail1;
 
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.frag_movie, container, false);
-
         return v;
     }
 
@@ -60,6 +60,7 @@ public class MovieNewsFragment extends Fragment {
 
             @Override
             public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
+
             }
         });
 
