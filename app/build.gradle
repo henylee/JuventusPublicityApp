@@ -24,6 +24,8 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    compile 'com.google.android.gms:play-services-maps:11.0.4'
+    compile 'com.google.android.gms:play-services-location:11.0.4'
     compile 'devs.mulham.horizontalcalendar:horizontalcalendar:1.1.7'
     compile 'org.jsoup:jsoup:1.10.3'
     compile 'com.android.support:design:23.1.1'

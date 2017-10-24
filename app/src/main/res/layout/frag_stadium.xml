@@ -16,12 +16,11 @@
             android:layout_height="250dp"
             android:src="@drawable/juventus_stadium"/>
 
-        <ImageView
-            android:layout_marginTop="20dp"
-            android:scaleType="fitXY"
+        <fragment
+            android:id="@+id/map"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:src="@drawable/stadium_map"/>
+            android:layout_height="match_parent"
+            class="com.google.android.gms.maps.MapFragment" />
 
         <LinearLayout
             android:layout_marginTop="20dp"
