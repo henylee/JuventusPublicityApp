@@ -46,22 +46,29 @@ public class StadiumFragment extends Fragment implements OnMapReadyCallback {
     }
 
     private void setValues() {
-
-    }
-
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(GoogleMap googleMap) {
                 mMap = googleMap;
 
-                LatLng stadium = new LatLng(45.109584, 7.641447);
+                LatLng stadium = new LatLng(45.109561, 7.641254);
 
-                mMap.addMarker(new MarkerOptions().position(stadium).title("Allianz Stadium"));
+                MarkerOptions stadiumMarker = new MarkerOptions();
+                stadiumMarker.position(stadium);
+                stadiumMarker.title("Allianz Stadium");
+                mMap.addMarker(stadiumMarker);
+
+                mMap.moveCamera(CameraUpdateFactory.zoomTo(15));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(stadium));
+
             }
         });
+
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+
     }
 }

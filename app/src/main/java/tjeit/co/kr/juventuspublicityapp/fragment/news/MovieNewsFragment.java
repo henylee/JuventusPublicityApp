@@ -8,6 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.YouTubePlayer;
+import com.google.android.youtube.player.YouTubePlayerSupportFragment;
+
 import tjeit.co.kr.juventuspublicityapp.R;
 
 /**
@@ -15,6 +19,11 @@ import tjeit.co.kr.juventuspublicityapp.R;
  */
 
 public class MovieNewsFragment extends Fragment {
+
+    private boolean interceptPlay = true;
+
+    public static YouTubePlayer youtubePlayer;
+    final String serverKey = "AIzaSyC6a9PrdiwmDdTB_nAlMfnrPaE80sxDcHA";
 
     @Nullable
     @Override
@@ -36,6 +45,20 @@ public class MovieNewsFragment extends Fragment {
     }
 
     private void setValues() {
+
+        YouTubePlayerSupportFragment supportFragment = (YouTubePlayerSupportFragment) (getChildFragmentManager().findFragmentById(R.id.youtubeFrag));
+        supportFragment.initialize(serverKey, new YouTubePlayer.OnInitializedListener() {
+            @Override
+            public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
+                youtubePlayer = youTubePlayer;
+                youtubePlayer.cueVideo("lsm5TDuAf5A");
+            }
+
+            @Override
+            public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
+
+            }
+        });
 
     }
 
