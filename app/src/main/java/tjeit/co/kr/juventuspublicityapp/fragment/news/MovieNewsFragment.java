@@ -16,7 +16,13 @@ import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerSupportFragment;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import tjeit.co.kr.juventuspublicityapp.R;
+import tjeit.co.kr.juventuspublicityapp.adapter.GridViewAdapter;
+import tjeit.co.kr.juventuspublicityapp.data.Photo;
+import tjeit.co.kr.juventuspublicityapp.util.ContextUtil;
 
 /**
  * Created by joeun on 2017-10-17.
@@ -28,9 +34,10 @@ public class MovieNewsFragment extends Fragment {
 
     public static YouTubePlayer youtubePlayer;
     final String serverKey = "AIzaSyC6a9PrdiwmDdTB_nAlMfnrPaE80sxDcHA";
-    private com.codewaves.youtubethumbnailview.ThumbnailView thumbnail;
     private android.widget.GridView youtubeThumbnail;
     private LinearLayout youtubeLink;
+    GridViewAdapter mGrid;
+    List<Photo> mListPriview = new ArrayList<>();
 
     @Nullable
     @Override
@@ -55,32 +62,9 @@ public class MovieNewsFragment extends Fragment {
     }
 
     private void setValues() {
-
-        ThumbnailLoader.initialize(serverKey);
-        ThumbnailLoader.initialize().setVideoInfoDownloader(new OembedVideoInfoDownloader());
-
-        thumbnail.loadThumbnail("https://www.youtube.com/watch?v=xFLpMnfvUxc");
-
-        thumbnail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                youtubeLink.setVisibility(View.VISIBLE);
-                YouTubePlayerSupportFragment supportFragment = (YouTubePlayerSupportFragment) (getChildFragmentManager().findFragmentById(R.id.youtubeFrag));
-                supportFragment.initialize(serverKey, new YouTubePlayer.OnInitializedListener() {
-                    @Override
-                    public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
-                        youtubePlayer = youTubePlayer;
-                        youtubePlayer.cueVideo("xFLpMnfvUxc");
-
-                    }
-
-                    @Override
-                    public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
-
-                    }
-                });
-            }
-        });
+        mListPriview.addAll(ContextUtil.priview);
+        mGrid = new GridViewAdapter(getActivity(), mListPriview);
+        youtubeThumbnail.setAdapter(mGrid);
 
     }
 

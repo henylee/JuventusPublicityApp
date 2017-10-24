@@ -10,7 +10,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.codewaves.youtubethumbnailview.ThumbnailLoader;
+import com.codewaves.youtubethumbnailview.ThumbnailView;
 import com.codewaves.youtubethumbnailview.downloader.OembedVideoInfoDownloader;
 import com.google.android.youtube.player.YouTubeThumbnailView;
 
@@ -46,7 +48,10 @@ public class GridViewAdapter extends ArrayAdapter<Photo> {
         if (row==null) {
             row=inf.inflate(R.layout.gridview_list_item, null);
         }
-        YouTubeThumbnailView thumbnail = (YouTubeThumbnailView) row.findViewById(R.id.thumbnail);
+
+        Photo data = mList.get(position);
+
+        ThumbnailView thumbnail = (ThumbnailView) row.findViewById(R.id.thumbnail);
         TextView matchTxt = (TextView) row.findViewById(R.id.matchTxt);
 
         final String serverKey = "AIzaSyC6a9PrdiwmDdTB_nAlMfnrPaE80sxDcHA";
@@ -54,7 +59,8 @@ public class GridViewAdapter extends ArrayAdapter<Photo> {
         ThumbnailLoader.initialize(serverKey);
         ThumbnailLoader.initialize().setVideoInfoDownloader(new OembedVideoInfoDownloader());
 
-        thumbnail.loadThumbnail("https://www.youtube.com/watch?v=xFLpMnfvUxc");
+        thumbnail.loadThumbnail(data.getThumNailImg());
+        matchTxt.setText(data.getPriviewText());
         return row;
     }
 }

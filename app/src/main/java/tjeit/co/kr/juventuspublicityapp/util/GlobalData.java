@@ -2,6 +2,7 @@ package tjeit.co.kr.juventuspublicityapp.util;
 
 import android.content.Context;
 
+import tjeit.co.kr.juventuspublicityapp.data.Photo;
 import tjeit.co.kr.juventuspublicityapp.data.Players;
 import tjeit.co.kr.juventuspublicityapp.data.TeamMatch;
 
@@ -55,6 +56,14 @@ public class GlobalData {
         ContextUtil.LeasePlayers.add(new Players(0, "도글라스 코스타 (뮌헨에서 임대)\n(Douglas Costa de Souza)", "브라질", 11, 2017, 21, 6, "http://www.juventus.com/media/images/news-images/2017-18/grafiche/calciomercato/Juventus_PED_Luglio-2017_Benvenuto%20Costa_News.png"));
         ContextUtil.LeasePlayers.add(new Players(1, "베네딕트 회베데스 (샬케에서 임대)\n(Benedikt Höwedes)", "독일", 21, 2017, 44, 0, "http://www.juventus.com/media/images/news-images/2017-18/grafiche/calciomercato/Juventus_Benvenuto_News_Benedikt%20Howedes.jpg"));
         ContextUtil.LeasePlayers.add(new Players(2, "다니엘레 루가니 (엠폴리로 임대)\n(Daniele Rugani)", "이탈리아", 24, 2013, 1, 19, "http://www.juventus.com/media/images/news-images/2016-17/partite/rugani_jempoli.jpg"));
+    }
+
+    public static void addMovie() {
+        ContextUtil.priview.clear();
+        ContextUtil.priview.add(new Photo("https://www.youtube.com/watch?v=xFLpMnfvUxc", "Udinese - Juventus 2 - 6 - Highlights"));
+        ContextUtil.priview.add(new Photo("https://www.youtube.com/watch?v=3TTsfrnYlCE", "Juventus - Lazio 1-2 - Highlights"));
+        ContextUtil.priview.add(new Photo("https://www.youtube.com/watch?v=Ntymfn_aI6k", "Atalanta - Juventus - 2-2 - Highlights"));
+        ContextUtil.priview.add(new Photo("https://www.youtube.com/watch?v=t_0fiC5ywV8", "Juventus - Torino 4-0 - Highlights"));
     }
 
 //    public static void allTeamRanking() {
