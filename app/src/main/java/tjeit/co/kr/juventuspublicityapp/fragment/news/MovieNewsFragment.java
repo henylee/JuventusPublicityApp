@@ -6,12 +6,15 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridView;
+import android.widget.LinearLayout;
 
+import com.codewaves.youtubethumbnailview.ThumbnailLoader;
+import com.codewaves.youtubethumbnailview.ThumbnailView;
+import com.codewaves.youtubethumbnailview.downloader.OembedVideoInfoDownloader;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerSupportFragment;
-import com.google.android.youtube.player.YouTubeThumbnailLoader;
-import com.google.android.youtube.player.YouTubeThumbnailView;
 
 import tjeit.co.kr.juventuspublicityapp.R;
 
@@ -25,13 +28,17 @@ public class MovieNewsFragment extends Fragment {
 
     public static YouTubePlayer youtubePlayer;
     final String serverKey = "AIzaSyC6a9PrdiwmDdTB_nAlMfnrPaE80sxDcHA";
-    private YouTubeThumbnailView thumbnail1;
-
+    private com.codewaves.youtubethumbnailview.ThumbnailView thumbnail;
+    private android.widget.GridView youtubeThumbnail;
+    private LinearLayout youtubeLink;
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(final LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.frag_movie, container, false);
+        this.youtubeLink = (LinearLayout) v.findViewById(R.id.youtubeLink);
+        this.youtubeThumbnail = (GridView) v.findViewById(R.id.youtubeThumbnail);
+
         return v;
     }
 
@@ -49,18 +56,29 @@ public class MovieNewsFragment extends Fragment {
 
     private void setValues() {
 
-        YouTubePlayerSupportFragment supportFragment = (YouTubePlayerSupportFragment) (getChildFragmentManager().findFragmentById(R.id.youtubeFrag));
-        supportFragment.initialize(serverKey, new YouTubePlayer.OnInitializedListener() {
+        ThumbnailLoader.initialize(serverKey);
+        ThumbnailLoader.initialize().setVideoInfoDownloader(new OembedVideoInfoDownloader());
+
+        thumbnail.loadThumbnail("https://www.youtube.com/watch?v=xFLpMnfvUxc");
+
+        thumbnail.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
-                youtubePlayer = youTubePlayer;
-                youtubePlayer.cueVideo("xFLpMnfvUxc");
+            public void onClick(View view) {
+                youtubeLink.setVisibility(View.VISIBLE);
+                YouTubePlayerSupportFragment supportFragment = (YouTubePlayerSupportFragment) (getChildFragmentManager().findFragmentById(R.id.youtubeFrag));
+                supportFragment.initialize(serverKey, new YouTubePlayer.OnInitializedListener() {
+                    @Override
+                    public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
+                        youtubePlayer = youTubePlayer;
+                        youtubePlayer.cueVideo("xFLpMnfvUxc");
 
-            }
+                    }
 
-            @Override
-            public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
+                    @Override
+                    public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
 
+                    }
+                });
             }
         });
 

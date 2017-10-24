@@ -16,6 +16,9 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyC6a9PrdiwmDdTB_nAlMfnrPaE80sxDcHA" />
+
+        <meta-data android:name="com.codewaves.youtubethumbnailview.ApiKey"
+            android:value="AIzaSyC6a9PrdiwmDdTB_nAlMfnrPaE80sxDcHA" />
         <activity android:name=".MainActivity">
         </activity>
         <activity
