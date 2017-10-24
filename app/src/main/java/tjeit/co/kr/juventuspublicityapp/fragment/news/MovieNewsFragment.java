@@ -55,7 +55,7 @@ public class MovieNewsFragment extends Fragment {
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
                 youtubePlayer = youTubePlayer;
                 youtubePlayer.cueVideo("lsm5TDuAf5A");
-                youTubePlayer
+
             }
 
             @Override
