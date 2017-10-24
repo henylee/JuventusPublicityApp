@@ -6,6 +6,7 @@
     android:layout_height="match_parent">
 
     <com.codewaves.youtubethumbnailview.ThumbnailView
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:id="@+id/thumbnail"
         android:layout_width="220dp"
@@ -34,7 +35,7 @@
         app:youtube_titleVisible="true" />
 
     <TextView
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
         android:id="@+id/matchTxt"
         android:layout_width="wrap_content"
