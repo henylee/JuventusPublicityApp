@@ -22,7 +22,7 @@ import tjeit.co.kr.juventuspublicityapp.R;
  * Created by joeun on 2017-10-19.
  */
 
-public class StadiumFragment extends Fragment {
+public class StadiumFragment extends Fragment implements OnMapReadyCallback {
 
     private GoogleMap mMap;
 
@@ -30,17 +30,6 @@ public class StadiumFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.frag_stadium, container, false);
-        SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
-        mapFragment.getMapAsync(new OnMapReadyCallback() {
-            @Override
-            public void onMapReady(GoogleMap googleMap) {
-                mMap = googleMap;
-
-                LatLng stadium = new LatLng(50, 10151);
-                mMap.addMarker(new MarkerOptions().position(stadium).title("Allianz Stadium"));
-                mMap.moveCamera(CameraUpdateFactory.newLatLng(stadium));
-            }
-        });
         return v;
     }
 
@@ -60,4 +49,19 @@ public class StadiumFragment extends Fragment {
 
     }
 
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
+        mapFragment.getMapAsync(new OnMapReadyCallback() {
+            @Override
+            public void onMapReady(GoogleMap googleMap) {
+                mMap = googleMap;
+
+                LatLng stadium = new LatLng(45.109584, 7.641447);
+
+                mMap.addMarker(new MarkerOptions().position(stadium).title("Allianz Stadium"));
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(stadium));
+            }
+        });
+    }
 }
