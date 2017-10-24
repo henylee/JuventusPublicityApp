@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
-                android:text="Udinese vs Juventus 2-6 - All Goals, \nHighlights - 22/10/2017 HD"
+                android:text="Udinese - Juventus 2 - 6 - Highlights -\nGiornata 9 - Serie A TIM 2017/18"
                 android:textColor="#000000"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -55,7 +55,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:padding="5dp"
-                        android:text="Premium Sintesi 2 "
+                        android:text="Serie A TIM "
                         android:textColor="#000000"
                         android:textSize="12sp" />
 
@@ -84,7 +84,7 @@
                             android:background="#ffffff"
                             android:gravity="center"
                             android:padding="3dp"
-                            android:text="320만"
+                            android:text="40만"
                             android:textSize="12sp" />
                     </LinearLayout>
                 </LinearLayout>
@@ -111,28 +111,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:text="2017. 10. 22."
+                        android:text="2017. 10. 23."
                         android:textSize="12sp" />
                 </LinearLayout>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Premium Sintesi
-Udinese vs Juventus 2-6 Highlights / Goals
-\nSerie A, 22 Ottobre 2017.
-
-\n1-0 Perica
-\n1-1 Samir(autogol)
-\n1-2 Khedira
-\n2-2 Danilo
-\n2-3 Rugani
-\n2-4 Khedira
-\n2-5 Khedira
-\n2-6 Pjanic
-
-\nUdinese, Juventus, 2-6, Highlights, Goals, 22, Ottobre, 2017, Udinese vs Juventus, Udinese vs Juventus 2-6, Udinese vs Juventus gol, Udinese vs Juventus 2017,
-\nUdinese vs Juventus highlights, Udinese vs Juventus all goals, Premium, Sintesi, 2x6, Friendly, Skills, HD, Serie A, Mandzukic, Khedira, Perica, Danilo, Rugani, Pjanic"
+                    android:text="Iscriviti al canale ufficiale della Serie A TIM /\nSubscribe to the official Serie A TIM channel:"
                     android:textSize="12sp" />
             </LinearLayout>
         </LinearLayout>
