@@ -9,14 +9,16 @@ import java.io.Serializable;
 public class News implements Serializable {
 
     private String imageURL;
+    private String title;
     private String content;
 
     public News() {
 
     }
 
-    public News(String imageURL, String content) {
+    public News(String imageURL, String title, String content) {
         this.imageURL = imageURL;
+        this.title = title;
         this.content = content;
     }
 
@@ -26,6 +28,14 @@ public class News implements Serializable {
 
     public void setImageURL(String imageURL) {
         this.imageURL = imageURL;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getContent() {
