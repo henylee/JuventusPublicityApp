@@ -3,7 +3,7 @@
     package="tjeit.co.kr.juventuspublicityapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -12,15 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyC6a9PrdiwmDdTB_nAlMfnrPaE80sxDcHA" />
-
-        <meta-data android:name="com.codewaves.youtubethumbnailview.ApiKey"
+        <meta-data
+            android:name="com.codewaves.youtubethumbnailview.ApiKey"
             android:value="AIzaSyC6a9PrdiwmDdTB_nAlMfnrPaE80sxDcHA" />
-        <activity android:name=".MainActivity">
-        </activity>
+
+        <activity android:name=".MainActivity"></activity>
         <activity
             android:name=".SplashActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
@@ -32,7 +31,8 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".DetailNewsActivity"></activity>
     </application>
 
 </manifest>

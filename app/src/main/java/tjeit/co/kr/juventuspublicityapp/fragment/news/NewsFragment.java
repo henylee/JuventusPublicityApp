@@ -13,6 +13,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
+import tjeit.co.kr.juventuspublicityapp.DetailNewsActivity;
 import tjeit.co.kr.juventuspublicityapp.R;
 import tjeit.co.kr.juventuspublicityapp.adapter.NewsAdapter;
 import tjeit.co.kr.juventuspublicityapp.data.News;
@@ -52,7 +53,7 @@ public class NewsFragment extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 News list = newsList.get(i);
 
-                Intent intent = new Intent(getActivity(), DetailNewsFragment.class);
+                Intent intent = new Intent(getActivity(), DetailNewsActivity.class);
                 intent.putExtra("뉴스내용", list);
                 getActivity().startActivity(intent);
             }
