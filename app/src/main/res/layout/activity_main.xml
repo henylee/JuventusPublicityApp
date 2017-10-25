@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="tjeit.co.kr.juventuspublicityapp.MainActivity">
+    tools:context="tjeit.co.kr.juventuspublicapp.MainActivity">
 
     <android.support.v4.widget.DrawerLayout
         android:id="@+id/naviMenu"
@@ -23,7 +23,7 @@
                 android:tag="mainFrag"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                class="tjeit.co.kr.juventuspublicityapp.fragment.MainFragment"
+                class="tjeit.co.kr.juventuspublicapp.fragment.MainFragment"
                 tools:layout="@layout/frag_main">
 
             </fragment>
@@ -32,7 +32,7 @@
                 android:tag="allnewsfrag"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                class="tjeit.co.kr.juventuspublicityapp.fragment.news.AllNewsFragment"
+                class="tjeit.co.kr.juventuspublicapp.fragment.news.AllNewsFragment"
                 tools:layout="@layout/frag_allnews">
 
             </fragment>
@@ -41,7 +41,7 @@
                 android:tag="playerfrag"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                class="tjeit.co.kr.juventuspublicityapp.fragment.players.AllPlayerFragment"
+                class="tjeit.co.kr.juventuspublicapp.fragment.players.AllPlayerFragment"
                 tools:layout="@layout/frag_allplayer">
 
             </fragment>
@@ -50,7 +50,7 @@
                 android:tag="matchfrag"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                class="tjeit.co.kr.juventuspublicityapp.fragment.match.MatchFragment"
+                class="tjeit.co.kr.juventuspublicapp.fragment.match.MatchFragment"
                 tools:layout="@layout/frag_match">
 
             </fragment>
@@ -59,7 +59,7 @@
                 android:tag="membershipfrag"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                class="tjeit.co.kr.juventuspublicityapp.fragment.MemberShipFragment"
+                class="tjeit.co.kr.juventuspublicapp.fragment.MemberShipFragment"
                 tools:layout="@layout/frag_membership">
 
             </fragment>
@@ -68,7 +68,7 @@
                 android:tag="shopfrag"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                class="tjeit.co.kr.juventuspublicityapp.fragment.ShopFragment"
+                class="tjeit.co.kr.juventuspublicapp.fragment.ShopFragment"
                 tools:layout="@layout/frag_shop">
 
             </fragment>

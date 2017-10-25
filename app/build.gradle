@@ -4,7 +4,7 @@ android {
     compileSdkVersion 26
     buildToolsVersion "26.0.1"
     defaultConfig {
-        applicationId "tjeit.co.kr.juventuspublicityapp"
+        applicationId "tjeit.co.kr.juventuspublicapp"
         minSdkVersion 15
         targetSdkVersion 26
         versionCode 2

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context="tjeit.co.kr.juventuspublicityapp.SplashActivity">
+    tools:context="tjeit.co.kr.juventuspublicapp.SplashActivity">
 
     <ImageView
         android:scaleType="fitXY"
