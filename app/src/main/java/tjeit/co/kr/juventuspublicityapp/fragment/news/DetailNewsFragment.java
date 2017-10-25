@@ -15,6 +15,7 @@ import java.util.List;
 import tjeit.co.kr.juventuspublicityapp.R;
 import tjeit.co.kr.juventuspublicityapp.adapter.NewsAdapter;
 import tjeit.co.kr.juventuspublicityapp.data.News;
+import tjeit.co.kr.juventuspublicityapp.util.GlobalData;
 
 /**
  * Created by joeun on 2017-10-25.
@@ -50,6 +51,7 @@ public class DetailNewsFragment extends Fragment {
     }
 
     private void setValues() {
+        GlobalData.addNews();
 
     }
 
