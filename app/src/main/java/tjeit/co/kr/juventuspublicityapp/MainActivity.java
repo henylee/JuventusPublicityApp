@@ -1,16 +1,12 @@
 package tjeit.co.kr.juventuspublicityapp;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import tjeit.co.kr.juventuspublicityapp.fragment.match.SerieLeagueFragment;
-import tjeit.co.kr.juventuspublicityapp.fragment.news.AllNewsFragment;
-import tjeit.co.kr.juventuspublicityapp.fragment.players.AllPlayerFragment;
 
 public class MainActivity extends BaseActivity {
 
@@ -32,6 +28,7 @@ public class MainActivity extends BaseActivity {
     private android.widget.TextView allPlayer;
     private android.widget.TextView league;
     private TextView newsFeed;
+    private LinearLayout menuLayout;
 
 
     @Override
@@ -47,6 +44,22 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void setupEvents() {
+
+        menuLayout.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent Event) {
+                if (Event.getAction()==MotionEvent.ACTION_DOWN) {
+                    return true;
+                }
+                else if (Event.getAction()==MotionEvent.ACTION_MOVE) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+        });
+
         hamburgBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -110,8 +123,8 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void bindViews() {
-        this.newsFeed = (TextView) findViewById(R.id.newsFeed);
         this.naviMenu = (DrawerLayout) findViewById(R.id.naviMenu);
+        this.menuLayout = (LinearLayout) findViewById(R.id.menuLayout);
         this.myPagerLayout = (LinearLayout) findViewById(R.id.myPagerLayout);
         this.myPagerBtn = (LinearLayout) findViewById(R.id.myPagerBtn);
         this.matchLayout = (LinearLayout) findViewById(R.id.matchLayout);
@@ -123,6 +136,7 @@ public class MainActivity extends BaseActivity {
         this.newsLayOut = (LinearLayout) findViewById(R.id.newsLayOut);
         this.movie = (TextView) findViewById(R.id.movie);
         this.photo = (TextView) findViewById(R.id.photo);
+        this.newsFeed = (TextView) findViewById(R.id.newsFeed);
         this.newsBtn = (LinearLayout) findViewById(R.id.newsBtn);
 
     }
