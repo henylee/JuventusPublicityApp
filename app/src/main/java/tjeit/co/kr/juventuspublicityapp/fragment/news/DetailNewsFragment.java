@@ -52,7 +52,6 @@ public class DetailNewsFragment extends Fragment {
 
     private void setValues() {
         GlobalData.addNews();
-
     }
 
 }

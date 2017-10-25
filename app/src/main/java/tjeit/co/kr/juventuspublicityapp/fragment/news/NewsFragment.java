@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -46,6 +47,16 @@ public class NewsFragment extends Fragment {
 
     private void setupEvents() {
 
+        newsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                News list = newsList.get(i);
+
+                Intent intent = new Intent(getActivity(), DetailNewsFragment.class);
+                intent.putExtra("뉴스내용", list);
+                getActivity().startActivity(intent);
+            }
+        });
     }
 
     private void setValues() {
