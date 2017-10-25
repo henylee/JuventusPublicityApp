@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import tjeit.co.kr.juventuspublicityapp.fragment.MainFragment;
+
 public class MainActivity extends BaseActivity {
 
     private android.support.v4.widget.DrawerLayout naviMenu;
@@ -29,6 +31,7 @@ public class MainActivity extends BaseActivity {
     private android.widget.TextView league;
     private TextView newsFeed;
     private LinearLayout menuLayout;
+    private TextView coachingStaffTxt;
 
 
     @Override
@@ -44,6 +47,46 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void setupEvents() {
+
+        newsFeed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainFragment) getSupportFragmentManager().findFragmentByTag("mainFrag")).changeFrag(0, 0);
+                naviMenu.closeDrawer(GravityCompat.START);
+            }
+        });
+
+        photo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainFragment) getSupportFragmentManager().findFragmentByTag("mainFrag")).changeFrag(0, 1);
+                naviMenu.closeDrawer(GravityCompat.START);
+            }
+        });
+        movie.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainFragment) getSupportFragmentManager().findFragmentByTag("mainFrag")).changeFrag(0, 2);
+                naviMenu.closeDrawer(GravityCompat.START);
+            }
+        });
+
+        coachingStaffTxt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainFragment) getSupportFragmentManager().findFragmentByTag("mainFrag")).changeFrag(1, 0);
+                naviMenu.closeDrawer(GravityCompat.START);
+            }
+        });
+
+
+        movie.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainFragment) getSupportFragmentManager().findFragmentByTag("mainFrag")).changeFrag(0, 2);
+            }
+        });
+
 
         menuLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -131,6 +174,7 @@ public class MainActivity extends BaseActivity {
         this.league = (TextView) findViewById(R.id.league);
         this.matchBtn = (LinearLayout) findViewById(R.id.matchBtn);
         this.playerLayout = (LinearLayout) findViewById(R.id.playerLayout);
+        this.coachingStaffTxt = (TextView) findViewById(R.id.coachingStaffTxt);
         this.allPlayer = (TextView) findViewById(R.id.allPlayer);
         this.playerBtn = (LinearLayout) findViewById(R.id.playerBtn);
         this.newsLayOut = (LinearLayout) findViewById(R.id.newsLayOut);

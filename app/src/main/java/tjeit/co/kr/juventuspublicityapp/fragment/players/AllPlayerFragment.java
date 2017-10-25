@@ -26,7 +26,7 @@ import tjeit.co.kr.juventuspublicityapp.fragment.news.AllNewsFragment;
 public class AllPlayerFragment extends Fragment {
 
     private SmartTabLayout viewpagertab;
-    private ViewPager viewpager;
+    public ViewPager viewpager;
 
     @Nullable
     @Override

@@ -28,7 +28,7 @@ import tjeit.co.kr.juventuspublicityapp.data.News;
 public class AllNewsFragment extends Fragment {
 
     private com.ogaclejapan.smarttablayout.SmartTabLayout viewpagertab;
-    private android.support.v4.view.ViewPager viewpager;
+    public android.support.v4.view.ViewPager viewpager;
 
     @Nullable
     @Override
