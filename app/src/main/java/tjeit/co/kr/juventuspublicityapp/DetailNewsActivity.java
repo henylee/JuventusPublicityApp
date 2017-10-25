@@ -2,6 +2,7 @@ package tjeit.co.kr.juventuspublicityapp;
 
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -50,5 +51,6 @@ public class DetailNewsActivity extends BaseActivity {
         this.contentTxt = (TextView) findViewById(R.id.contentTxt);
         this.newsImg = (ImageView) findViewById(R.id.newsImg);
         this.titleTxt = (TextView) findViewById(R.id.titleTxt);
+
     }
 }

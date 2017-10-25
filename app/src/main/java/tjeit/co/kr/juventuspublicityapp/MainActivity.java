@@ -32,6 +32,13 @@ public class MainActivity extends BaseActivity {
     private TextView newsFeed;
     private LinearLayout menuLayout;
     private TextView coachingStaffTxt;
+    private TextView GKTxt;
+    private TextView DFTxt;
+    private TextView MFTxt;
+    private TextView FWTxt;
+    private TextView LeaseTxt;
+    private TextView Rank;
+    private TextView StadiumTxt;
 
 
     @Override
@@ -80,13 +87,71 @@ public class MainActivity extends BaseActivity {
         });
 
 
-        movie.setOnClickListener(new View.OnClickListener() {
+        StadiumTxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((MainFragment) getSupportFragmentManager().findFragmentByTag("mainFrag")).changeFrag(0, 2);
+                ((MainFragment) getSupportFragmentManager().findFragmentByTag("mainFrag")).changeFrag(1, 1);
+                naviMenu.closeDrawer(GravityCompat.START);
             }
         });
 
+        GKTxt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainFragment) getSupportFragmentManager().findFragmentByTag("mainFrag")).changeFrag(1, 2);
+                naviMenu.closeDrawer(GravityCompat.START);
+            }
+        });
+
+        DFTxt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainFragment) getSupportFragmentManager().findFragmentByTag("mainFrag")).changeFrag(1, 3);
+                naviMenu.closeDrawer(GravityCompat.START);
+            }
+        });
+
+
+        MFTxt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainFragment) getSupportFragmentManager().findFragmentByTag("mainFrag")).changeFrag(1, 4);
+                naviMenu.closeDrawer(GravityCompat.START);
+            }
+        });
+
+
+        FWTxt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainFragment) getSupportFragmentManager().findFragmentByTag("mainFrag")).changeFrag(1, 5);
+                naviMenu.closeDrawer(GravityCompat.START);
+            }
+        });
+
+
+        LeaseTxt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainFragment) getSupportFragmentManager().findFragmentByTag("mainFrag")).changeFrag(1, 6);
+                naviMenu.closeDrawer(GravityCompat.START);
+            }
+        });
+        league.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainFragment) getSupportFragmentManager().findFragmentByTag("mainFrag")).changeFrag(2, 0);
+                naviMenu.closeDrawer(GravityCompat.START);
+            }
+        });
+
+        Rank.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainFragment) getSupportFragmentManager().findFragmentByTag("mainFrag")).changeFrag(2, 1);
+                naviMenu.closeDrawer(GravityCompat.START);
+            }
+        });
 
         menuLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -171,11 +236,17 @@ public class MainActivity extends BaseActivity {
         this.myPagerLayout = (LinearLayout) findViewById(R.id.myPagerLayout);
         this.myPagerBtn = (LinearLayout) findViewById(R.id.myPagerBtn);
         this.matchLayout = (LinearLayout) findViewById(R.id.matchLayout);
+        this.Rank = (TextView) findViewById(R.id.Rank);
         this.league = (TextView) findViewById(R.id.league);
         this.matchBtn = (LinearLayout) findViewById(R.id.matchBtn);
         this.playerLayout = (LinearLayout) findViewById(R.id.playerLayout);
+        this.LeaseTxt = (TextView) findViewById(R.id.LeaseTxt);
+        this.FWTxt = (TextView) findViewById(R.id.FWTxt);
+        this.MFTxt = (TextView) findViewById(R.id.MFTxt);
+        this.DFTxt = (TextView) findViewById(R.id.DFTxt);
+        this.GKTxt = (TextView) findViewById(R.id.GKTxt);
+        this.StadiumTxt = (TextView) findViewById(R.id.StadiumTxt);
         this.coachingStaffTxt = (TextView) findViewById(R.id.coachingStaffTxt);
-        this.allPlayer = (TextView) findViewById(R.id.allPlayer);
         this.playerBtn = (LinearLayout) findViewById(R.id.playerBtn);
         this.newsLayOut = (LinearLayout) findViewById(R.id.newsLayOut);
         this.movie = (TextView) findViewById(R.id.movie);

@@ -55,6 +55,10 @@ public class MainFragment extends Fragment {
             ((AllPlayerFragment) adapter.getPage(rootPage)).viewpager.setCurrentItem(innerPage);
         }
 
+        else if (rootPage==2) {
+            ((MatchFragment) adapter.getPage(rootPage)).viewpager.setCurrentItem(innerPage);
+        }
+
     }
 
     @Override

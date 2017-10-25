@@ -21,7 +21,7 @@ import tjeit.co.kr.juventuspublicityapp.R;
 public class MatchFragment extends Fragment {
 
     private com.ogaclejapan.smarttablayout.SmartTabLayout viewpagertab;
-    private android.support.v4.view.ViewPager viewpager;
+    public android.support.v4.view.ViewPager viewpager;
 
     @Nullable
     @Override

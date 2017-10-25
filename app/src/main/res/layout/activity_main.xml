@@ -202,15 +202,6 @@
                     android:visibility="gone">
 
                     <TextView
-                        android:id="@+id/allPlayer"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:text="전체 선수명단"
-                        android:textColor="#000000"
-                        android:textSize="15sp" />
-
-                    <TextView
                         android:id="@+id/coachingStaffTxt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -221,6 +212,18 @@
                         android:textSize="15sp" />
 
                     <TextView
+                        android:id="@+id/StadiumTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="경기장"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+
+
+                    <TextView
+                        android:id="@+id/GKTxt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
@@ -230,6 +233,7 @@
                         android:textSize="15sp" />
 
                     <TextView
+                        android:id="@+id/DFTxt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
@@ -239,6 +243,7 @@
                         android:textSize="15sp" />
 
                     <TextView
+                        android:id="@+id/MFTxt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
@@ -248,6 +253,7 @@
                         android:textSize="15sp" />
 
                     <TextView
+                        android:id="@+id/FWTxt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
@@ -255,6 +261,17 @@
                         android:text="FW"
                         android:textColor="#000000"
                         android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/LeaseTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="임대"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+
 
                 </LinearLayout>
 
@@ -309,6 +326,7 @@
                         android:textSize="15sp" />
 
                     <TextView
+                        android:id="@+id/Rank"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
