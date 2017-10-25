@@ -20,6 +20,7 @@ import java.util.List;
 
 import tjeit.co.kr.juventuspublicityapp.R;
 import tjeit.co.kr.juventuspublicityapp.data.Photo;
+import tjeit.co.kr.juventuspublicityapp.fragment.news.MovieNewsFragment;
 
 /**
  * Created by joeun on 2017-10-24.
@@ -30,14 +31,16 @@ public class GridViewAdapter extends ArrayAdapter<Photo> {
     Context mContext;
     List<Photo> mList;
     LayoutInflater inf;
+    MovieNewsFragment mnf;
 
-    public GridViewAdapter(Context context, List<Photo> list) {
+    public GridViewAdapter(Context context, List<Photo> list, MovieNewsFragment movieNewsFrg) {
 
         super(context, R.layout.gridview_list_item, list);
 
         mContext = context;
         mList = list;
         inf = LayoutInflater.from(mContext);
+        mnf=movieNewsFrg;
     }
 
     @NonNull
@@ -49,7 +52,7 @@ public class GridViewAdapter extends ArrayAdapter<Photo> {
             row=inf.inflate(R.layout.gridview_list_item, null);
         }
 
-        Photo data = mList.get(position);
+        final Photo data = mList.get(position);
 
         ThumbnailView thumbnail = (ThumbnailView) row.findViewById(R.id.thumbnail);
         TextView matchTxt = (TextView) row.findViewById(R.id.matchTxt);
@@ -61,6 +64,16 @@ public class GridViewAdapter extends ArrayAdapter<Photo> {
 
         thumbnail.loadThumbnail(data.getThumNailImg());
         matchTxt.setText(data.getPriviewText());
+
+        thumbnail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String show = data.getThumNailImg().split("=")[1];
+
+                mnf.showMovie(show);
+            }
+        });
+
         return row;
     }
 }

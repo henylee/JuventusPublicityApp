@@ -7,11 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.codewaves.youtubethumbnailview.ThumbnailLoader;
-import com.codewaves.youtubethumbnailview.ThumbnailView;
-import com.codewaves.youtubethumbnailview.downloader.OembedVideoInfoDownloader;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerSupportFragment;
@@ -35,14 +33,16 @@ public class MovieNewsFragment extends Fragment {
     public static YouTubePlayer youtubePlayer;
     final String serverKey = "AIzaSyC6a9PrdiwmDdTB_nAlMfnrPaE80sxDcHA";
     private android.widget.GridView youtubeThumbnail;
-    private LinearLayout youtubeLink;
     GridViewAdapter mGrid;
     List<Photo> mListPriview = new ArrayList<>();
+    private LinearLayout youtubeLink;
+    private android.widget.ImageView backBtn;
 
     @Nullable
     @Override
     public View onCreateView(final LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.frag_movie, container, false);
+        this.backBtn = (ImageView) v.findViewById(R.id.backBtn);
         this.youtubeLink = (LinearLayout) v.findViewById(R.id.youtubeLink);
         this.youtubeThumbnail = (GridView) v.findViewById(R.id.youtubeThumbnail);
 
@@ -58,13 +58,38 @@ public class MovieNewsFragment extends Fragment {
     }
 
     private void setupEvents() {
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                youtubeThumbnail.setVisibility(View.VISIBLE);
+                youtubeLink.setVisibility(View.GONE);
+            }
+        });
 
     }
 
     private void setValues() {
         mListPriview.addAll(ContextUtil.priview);
-        mGrid = new GridViewAdapter(getActivity(), mListPriview);
+        mGrid = new GridViewAdapter(getActivity(), mListPriview, this);
         youtubeThumbnail.setAdapter(mGrid);
+    }
+
+    public void showMovie(final String uri) {
+        youtubeThumbnail.setVisibility(View.GONE);
+        youtubeLink.setVisibility(View.VISIBLE);
+        YouTubePlayerSupportFragment supportFragment = (YouTubePlayerSupportFragment) (getChildFragmentManager().findFragmentById(R.id.youtubeFrag));
+        supportFragment.initialize(serverKey, new YouTubePlayer.OnInitializedListener() {
+            @Override
+            public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
+                youtubePlayer = youTubePlayer;
+                youtubePlayer.cueVideo(uri);
+
+            }
+
+            @Override
+            public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
+            }
+        });
 
     }
 
