@@ -63,14 +63,12 @@ public class GridViewAdapter extends ArrayAdapter<Photo> {
         ThumbnailLoader.initialize().setVideoInfoDownloader(new OembedVideoInfoDownloader());
 
         thumbnail.loadThumbnail(data.getThumNailImg());
-        matchTxt.setText(data.getPriviewText());
+        matchTxt.setText(data.getTitleText());
 
         thumbnail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String show = data.getThumNailImg().split("=")[1];
-
-                mnf.showMovie(show);
+                mnf.showMovie(data);
             }
         });
 

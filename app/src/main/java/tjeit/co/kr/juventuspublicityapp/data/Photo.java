@@ -9,15 +9,17 @@ import java.io.Serializable;
 public class Photo implements Serializable {
 
     private String thumNailImg;
-    private String priviewText;
+    private String titleText;
+    private String detailDescrip;
 
     public Photo() {
         
     }
 
-    public Photo(String thumNailImg, String priviewText) {
+    public Photo(String thumNailImg, String titleText, String detailDescrip) {
         this.thumNailImg = thumNailImg;
-        this.priviewText = priviewText;
+        this.titleText = titleText;
+        this.detailDescrip = detailDescrip;
     }
 
     public String getThumNailImg() {
@@ -28,11 +30,19 @@ public class Photo implements Serializable {
         this.thumNailImg = thumNailImg;
     }
 
-    public String getPriviewText() {
-        return priviewText;
+    public String getTitleText() {
+        return titleText;
     }
 
-    public void setPriviewText(String priviewText) {
-        this.priviewText = priviewText;
+    public void setTitleText(String titleText) {
+        this.titleText = titleText;
+    }
+
+    public String getDetailDescrip() {
+        return detailDescrip;
+    }
+
+    public void setDetailDescrip(String detailDescrip) {
+        this.detailDescrip = detailDescrip;
     }
 }

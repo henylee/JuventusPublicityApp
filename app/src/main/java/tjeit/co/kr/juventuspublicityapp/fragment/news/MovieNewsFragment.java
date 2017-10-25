@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
@@ -37,11 +38,15 @@ public class MovieNewsFragment extends Fragment {
     List<Photo> mListPriview = new ArrayList<>();
     private LinearLayout youtubeLink;
     private android.widget.ImageView backBtn;
+    private android.widget.TextView titleTxt;
+    private android.widget.TextView detailTxt;
 
     @Nullable
     @Override
     public View onCreateView(final LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.frag_movie, container, false);
+        this.detailTxt = (TextView) v.findViewById(R.id.detailTxt);
+        this.titleTxt = (TextView) v.findViewById(R.id.titleTxt);
         this.backBtn = (ImageView) v.findViewById(R.id.backBtn);
         this.youtubeLink = (LinearLayout) v.findViewById(R.id.youtubeLink);
         this.youtubeThumbnail = (GridView) v.findViewById(R.id.youtubeThumbnail);
@@ -72,17 +77,12 @@ public class MovieNewsFragment extends Fragment {
         mListPriview.addAll(ContextUtil.priview);
         mGrid = new GridViewAdapter(getActivity(), mListPriview, this);
         youtubeThumbnail.setAdapter(mGrid);
-    }
 
-    public void showMovie(final String uri) {
-        youtubeThumbnail.setVisibility(View.GONE);
-        youtubeLink.setVisibility(View.VISIBLE);
         YouTubePlayerSupportFragment supportFragment = (YouTubePlayerSupportFragment) (getChildFragmentManager().findFragmentById(R.id.youtubeFrag));
         supportFragment.initialize(serverKey, new YouTubePlayer.OnInitializedListener() {
             @Override
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
                 youtubePlayer = youTubePlayer;
-                youtubePlayer.cueVideo(uri);
 
             }
 
@@ -90,7 +90,15 @@ public class MovieNewsFragment extends Fragment {
             public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
             }
         });
+    }
 
+    public void showMovie(final Photo data) {
+        youtubeThumbnail.setVisibility(View.GONE);
+        youtubeLink.setVisibility(View.VISIBLE);
+
+        youtubePlayer.cueVideo(data.getThumNailImg().split("=")[1]);
+        titleTxt.setText(data.getTitleText());
+        detailTxt.setText(data.getDetailDescrip());
     }
 
 }

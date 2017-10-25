@@ -60,10 +60,10 @@ public class GlobalData {
 
     public static void addMovie() {
         ContextUtil.priview.clear();
-        ContextUtil.priview.add(new Photo("https://www.youtube.com/watch?v=xFLpMnfvUxc", "Udinese - Juventus 2 - 6 - Highlights"));
-        ContextUtil.priview.add(new Photo("https://www.youtube.com/watch?v=3TTsfrnYlCE", "Juventus - Lazio 1-2 - Highlights"));
-        ContextUtil.priview.add(new Photo("https://www.youtube.com/watch?v=Ntymfn_aI6k", "Atalanta - Juventus - 2-2 - Highlights"));
-        ContextUtil.priview.add(new Photo("https://www.youtube.com/watch?v=t_0fiC5ywV8", "Juventus - Torino 4-0 - Highlights"));
+        ContextUtil.priview.add(new Photo("https://www.youtube.com/watch?v=xFLpMnfvUxc", "Udinese - Juventus 2 - 6 - Highlights - Giornata 9 - Serie A TIM 2017/18","Iscriviti al canale ufficiale della Serie A TIM / Subscribe to the official Serie A TIM channel:"));
+        ContextUtil.priview.add(new Photo("https://www.youtube.com/watch?v=3TTsfrnYlCE", "Juventus - Lazio 1-2 - Highlights - Giornata 8 - Serie A TIM 2017/18","Iscriviti al canale ufficiale della Serie A TIM / Subscribe to the official Serie A TIM channel:"));
+        ContextUtil.priview.add(new Photo("https://www.youtube.com/watch?v=Ntymfn_aI6k", "Atalanta - Juventus - 2-2 - Highlights - Giornata 7 - Serie A TIM 2017/18","Iscriviti al canale ufficiale della Serie A TIM / Subscribe to the official Serie A TIM channel:"));
+        ContextUtil.priview.add(new Photo("https://www.youtube.com/watch?v=t_0fiC5ywV8", "Juventus - Torino 4-0 - Highlights - Giornata 6 - Serie A TIM 2017/18", "Iscriviti al canale ufficiale della Serie A TIM / Subscribe to the official Serie A TIM channel:"));
     }
 
 //    public static void allTeamRanking() {
