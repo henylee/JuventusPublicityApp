@@ -9,35 +9,35 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="10dp">
 
             <ImageView
-                android:scaleType="fitXY"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:src="@drawable/juventus_stadium"/>
+                android:scaleType="fitXY"
+                android:src="@drawable/juventus_stadium" />
 
             <fragment
                 android:id="@+id/map"
+                class="com.google.android.gms.maps.SupportMapFragment"
                 android:layout_width="match_parent"
-                android:layout_height="500dp"
-                class="com.google.android.gms.maps.SupportMapFragment" />
+                android:layout_height="500dp" />
 
             <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:textSize="20sp"
-                    android:textColor="#000000"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="위치 : 이탈리아 피에몬테 주 토리노"/>
+                    android:text="위치 : 이탈리아 피에몬테 주 토리노"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
 
             </LinearLayout>
 
@@ -47,11 +47,11 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:textSize="20sp"
-                    android:textColor="#000000"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="개장 : 2011년 9월 8일"/>
+                    android:text="개장 : 2011년 9월 8일"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
 
             </LinearLayout>
 
@@ -61,11 +61,11 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:textSize="20sp"
-                    android:textColor="#000000"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="좌석 : 41,507석"/>
+                    android:text="좌석 : 41,507석"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
 
             </LinearLayout>
 

@@ -15,7 +15,6 @@ public class Match implements Serializable {
     private String awayTeamName;
     private String awayTeamImg;
 
-
     public Match() {
 
     }
