@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyC6a9PrdiwmDdTB_nAlMfnrPaE80sxDcHA" />
+            android:value="AIzaSyCNXxNaCpPkpOk3fPvtJs6NDCkp8u2Kjlg" />
         <meta-data
             android:name="com.codewaves.youtubethumbnailview.ApiKey"
             android:value="AIzaSyC6a9PrdiwmDdTB_nAlMfnrPaE80sxDcHA" />
@@ -35,8 +35,10 @@
         <activity
             android:name=".DetailNewsActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".SignInActivity" />
-        <activity android:name=".SignUpActivity"></activity>
+
+        <activity
+            android:name=".SignUpActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
     </application>
 
 </manifest>

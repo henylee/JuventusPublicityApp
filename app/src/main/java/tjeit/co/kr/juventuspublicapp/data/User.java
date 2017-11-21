@@ -1,5 +1,8 @@
 package tjeit.co.kr.juventuspublicapp.data;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.Serializable;
 
 /**
@@ -13,19 +16,35 @@ public class User implements Serializable {
     private String password;
     private String name;
     private String phoneNum;
-    private String profileURL;
+    private String address;
+
+    public static User getUserFromJson(JSONObject jsonObject) {
+        User u = new User();
+
+        try {
+            u.userId = jsonObject.getString("userId");
+            u.password = jsonObject.getString("pw");
+            u.name = jsonObject.getString("name");
+            u.phoneNum = jsonObject.getString("phone");
+            u.address = jsonObject.getString("address");
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return u;
+    }
 
     public User() {
 
     }
 
-    public User(int id, String userId, String password, String name, String phoneNum, String profileURL) {
+    public User(int id, String userId, String password, String name, String phoneNum, String address) {
         this.id = id;
         this.userId = userId;
         this.password = password;
         this.name = name;
         this.phoneNum = phoneNum;
-        this.profileURL = profileURL;
+        this.address = address;
     }
 
     public int getId() {
@@ -68,12 +87,11 @@ public class User implements Serializable {
         this.phoneNum = phoneNum;
     }
 
-    public String getProfileURL() {
-        return profileURL;
+    public String getAddress() {
+        return address;
     }
 
-    public void setProfileURL(String profileURL) {
-        this.profileURL = profileURL;
+    public void setAddress(String address) {
+        this.address = address;
     }
-
 }

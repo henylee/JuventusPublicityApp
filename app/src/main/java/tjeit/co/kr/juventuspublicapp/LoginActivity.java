@@ -45,6 +45,7 @@ public class LoginActivity extends BaseActivity {
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 ServerUtil.sign_in(mContext, idEdt.getText().toString(), pwEdt.getText().toString(), new ServerUtil.JsonResponseHandler() {
                     @Override
                     public void onResponse(JSONObject json) {
@@ -52,6 +53,7 @@ public class LoginActivity extends BaseActivity {
                             if (json.getBoolean("result")) {
                                 Intent intent = new Intent(mContext, MainActivity.class);
                                 startActivity(intent);
+                                Toast.makeText(mContext, idEdt.getText().toString()+"님이 로그인했습니다.", Toast.LENGTH_SHORT).show();
                                 finish();
                             }
                             else {
@@ -62,6 +64,7 @@ public class LoginActivity extends BaseActivity {
                         }
                     }
                 });
+
             }
         });
 

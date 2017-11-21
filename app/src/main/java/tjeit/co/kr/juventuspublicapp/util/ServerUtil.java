@@ -16,7 +16,7 @@ import java.util.Map;
 public class ServerUtil {
 
 //    서버와 통신을 하기 위한 ip주소
-    private final static String BASE_URL = "http://52.78.209.126/";
+    private final static String BASE_URL = "http://192.168.20.49:8080/heny";
 
     public interface JsonResponseHandler {
         void onResponse(JSONObject json);
@@ -62,15 +62,16 @@ public class ServerUtil {
     }
 
 
-    public static void sign_up(final Context context, String id, String password, String name, String phomeNum, final JsonResponseHandler handler) {
-        String url = BASE_URL+"mobile/sign_up";
+    public static void sign_up(final Context context, String id, String password, String name, String phomeNum, String address, final JsonResponseHandler handler) {
+        String url = BASE_URL+"/sign_up";
         //		String registrationId = ContextUtil.getRegistrationId(context);
 
         Map<String, String> data = new HashMap<String, String>();
-        data.put("id", id);
+        data.put("userId", id);
         data.put("pw", password);
         data.put("name", name);
         data.put("phone", phomeNum);
+        data.put("address", address);
 
         AsyncHttpRequest.post(context, url,  data, false, new AsyncHttpRequest.HttpResponseHandler() {
 
@@ -105,11 +106,11 @@ public class ServerUtil {
     }
 
     public static void sign_in(final Context context, String id, String password, final JsonResponseHandler handler) {
-        String url = BASE_URL+"mobile/sign_in";
+        String url = BASE_URL+"/sign_in";
         //		String registrationId = ContextUtil.getRegistrationId(context);
 
         Map<String, String> data = new HashMap<String, String>();
-        data.put("id", id);
+        data.put("userId", id);
         data.put("pw", password);
 
         AsyncHttpRequest.post(context, url,  data, false, new AsyncHttpRequest.HttpResponseHandler() {

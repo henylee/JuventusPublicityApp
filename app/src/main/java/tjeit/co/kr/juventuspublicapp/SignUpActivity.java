@@ -19,6 +19,7 @@ public class SignUpActivity extends BaseActivity {
     private android.widget.EditText nameEdt;
     private android.widget.EditText phoneEdt;
     private android.widget.Button signupBtn;
+    private EditText addressEdt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,20 +61,17 @@ public class SignUpActivity extends BaseActivity {
                     return;
                 }
 
-                ServerUtil.sign_up(mContext, idEdt.getText().toString(), pwEdt.getText().toString(), nameEdt.getText().toString(), phoneEdt.getText().toString(), new ServerUtil.JsonResponseHandler() {
+                boolean isAddressOk = !addressEdt.getText().toString().equals("");
+                if (!isPhoneNumOk) {
+                    Toast.makeText(mContext, "주소를 입력하세요.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                ServerUtil.sign_up(mContext, idEdt.getText().toString(), pwEdt.getText().toString(), nameEdt.getText().toString(), phoneEdt.getText().toString(), addressEdt.getText().toString(), new ServerUtil.JsonResponseHandler() {
                     @Override
                     public void onResponse(JSONObject json) {
-                        try {
-                            if (json.getBoolean("result")) {
-                                Toast.makeText(mContext, "회원가입 성공", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(mContext, LoginActivity.class);
-                                startActivity(intent);
-                                finish();
-                            }
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
+                        Toast.makeText(mContext, "회원가입 성공!", Toast.LENGTH_SHORT).show();
+                        finish();
                     }
                 });
             }
@@ -88,6 +86,7 @@ public class SignUpActivity extends BaseActivity {
     @Override
     public void bindViews() {
         this.signupBtn = (Button) findViewById(R.id.signupBtn);
+        this.addressEdt = (EditText) findViewById(R.id.addressEdt);
         this.phoneEdt = (EditText) findViewById(R.id.phoneEdt);
         this.nameEdt = (EditText) findViewById(R.id.nameEdt);
         this.pwEdt = (EditText) findViewById(R.id.pwEdt);
